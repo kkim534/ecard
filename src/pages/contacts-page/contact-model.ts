@@ -1,5 +1,5 @@
 export interface ContactProps {
-    contacts: Contact[]
+    contacts: Contact[],
     recipients: Contact[]
 }
 
@@ -7,5 +7,10 @@ export interface ContactProps {
 export interface Contact {
     firstName: string,
     lastName: string,
-    email: string
+    email: string,
+    role: string
 }
+
+
+
+

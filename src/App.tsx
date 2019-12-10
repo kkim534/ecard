@@ -2,18 +2,24 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { ContactsPage } from './pages/contacts-page';
-import { Contact, ContactProps } from './pages/contacts-page/contact-model';
+import { Contact, ContactProps} from './pages/contacts-page/contact-model';
+
 
 let person = {
-  firstName: "Paul",
-  lastName: "Tanchareon",
-  email: "test@live.com"
+  firstName: "Jiyoung",
+  lastName: "Park",
+  email: "test@live.com",
+  role: "Datacom"
 } as Contact
 
+
 let dummyContactProps = {
-  contacts: [person, person, person],
+  contacts: [person],
   recipients: [person, person, person]
 } as ContactProps
+
+
+
 
 
 const App: React.FC = () => {
@@ -23,5 +29,6 @@ const App: React.FC = () => {
     </div>
   );
 }
+
 
 export default App;
