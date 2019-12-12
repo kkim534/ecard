@@ -1,26 +1,34 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { ContactsPage } from './pages/contacts-page';
+import { Contact, ContactProps} from './pages/contacts-page/contact-model';
+
+
+let person = {
+  firstName: "Jiyoung",
+  lastName: "Park",
+  email: "test@live.com",
+  role: "Datacom"
+} as Contact
+
+
+let dummyContactProps = {
+  contacts: [person],
+  recipients: [person, person, person]
+} as ContactProps
+
+
+
+
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ContactsPage {...dummyContactProps}/>
     </div>
   );
 }
+
 
 export default App;
