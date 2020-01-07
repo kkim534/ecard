@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
-import { ContactProps, Contact } from './contact-model'
-import { TextField, Fab, Button, Icon } from '@material-ui/core';
+import { Contact } from './contact-model'
+import { TextField, Button, Icon } from '@material-ui/core';
 import { DataContext } from '../../contexts/data-context';
 
 
