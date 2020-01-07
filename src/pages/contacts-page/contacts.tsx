@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { ContactProps, Contact } from './contact-model'
 import { TextField, Fab, Button, Icon } from '@material-ui/core';
+import { DataContext } from '../../contexts/data-context';
 
 
 
-export const ContactsPage: React.FunctionComponent<ContactProps> = (props: ContactProps) => {
-    const { contacts, recipients } = props
+export const ContactsPage: React.FunctionComponent = (props: any) => {
+    // let { contacts, recipients } = props
 
-
-    let [ContactList, setContacts] = useState(props.contacts)
+    let { data, setData } = useContext(DataContext);
+    const [ContactList, setContacts] = useState(data.contacts)
     
     let [firstName, setFirstName] = useState(" ")
     
@@ -22,23 +23,24 @@ export const ContactsPage: React.FunctionComponent<ContactProps> = (props: Conta
             role:nameSplit[3]
         } as Contact 
         
-        let NewContacts = [...ContactList]
-        NewContacts.push(person)
-        setContacts(NewContacts)
-        // state - updates an array of list 
-
-        //props.contacts.push(person);
-        alert("Contacts successfully added!");
+        setContacts(data.contacts = [...ContactList, person])
+        setData({contacts: data.contacts});
     }
 
     return (
         <>
             <TextField
-                id="outlined-basic"
+                inputProps={{
+                    'data-testid':"nameinput"
+                }}
+                id="outlined-basic"                
                 label={"Contact"}
-                onChange={(ev) => setFirstName(firstName = ev.target.value)}
+                onChange={(ev) => {
+                    setFirstName(firstName = ev.target.value)}
+                }
             />
             <Button
+                data-testid="addbutton"
                 variant="contained"
                 color="primary"
                 className={"test"}
