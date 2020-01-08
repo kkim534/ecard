@@ -9,7 +9,7 @@ Object {
         class="App"
       >
         <div
-          class="MuiFormControl-root MuiTextField-root"
+          
         >
           <label
             class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated"
