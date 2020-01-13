@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react'
+import './contacts.css'
 import { Contact } from './contact-model'
-import { TextField, Button, Icon } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import { DataContext } from '../../contexts/data-context';
-
-
+import Button from 'react-bootstrap/Button';
 
 export const ContactsPage: React.FunctionComponent = (props: any) => {
     // let { contacts, recipients } = props
@@ -12,15 +12,16 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     const [ContactList, setContacts] = useState(data.contacts)
     
     let [firstName, setFirstName] = useState(" ")
+    let [lastName, setLastName] = useState(" ")
+    let [email, setEmail] = useState(" ")
+    let [role, setRole] = useState(" ")
     
-
-    function addContact(name: string) {
-        var nameSplit = name.split(" ");
+    function addContact(firstName: string, lastName: string, email: string, role: string) {
         let person = {
-            firstName: nameSplit[0],
-            lastName: nameSplit[1],
-            email: nameSplit[2],
-            role:nameSplit[3]
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            role: role
         } as Contact 
         
         setContacts(data.contacts = [...ContactList, person])
@@ -29,26 +30,62 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
 
     return (
         <>
-            <TextField
-                inputProps={{
-                    'data-testid':"nameinput"
-                }}
-                id="outlined-basic"                
-                label={"Contact"}
-                onChange={(ev) => {
-                    setFirstName(firstName = ev.target.value)}
-                }
-            />
-            <Button
-                data-testid="addbutton"
-                variant="contained"
-                color="primary"
-                className={"test"}
-                endIcon={<Icon>add</Icon>}
-                onClick={() => addContact(firstName)}
-            >
-                Add Contacts
-            </Button>
+            <div>
+                <TextField
+                    inputProps={{
+                        'data-testid':"nameinput"
+                    }}
+                    id="first-name"                
+                    label={"First Name"}
+                    onChange={(ev) => {
+                        setFirstName(firstName = ev.target.value)}
+                    }
+                />
+                <TextField
+                    inputProps={{
+                        'data-testid':"nameinput"
+                    }}
+                    id="last-name"                
+                    label={"Last Name"}
+                    onChange={(ev) => {
+                        setLastName(lastName = ev.target.value)}
+                    }
+                />
+                <TextField
+                    inputProps={{
+                        'data-testid':"nameinput"
+                    }}
+                    id="email"                
+                    label={"Email"}
+                    onChange={(ev) => {
+                        setEmail(email = ev.target.value)}
+                    }
+                />
+                <TextField
+                    inputProps={{
+                        'data-testid':"nameinput"
+                    }}
+                    id="role"                
+                    label={"Role"}
+                    onChange={(ev) => {
+                        setRole(role = ev.target.value)}
+                    }
+                />                                
+            </div>
+            <div className = "btn-addContact">
+                <Button variant="primary" color="primary" size="lg" active
+                    onClick={() => addContact(firstName, lastName, email, role)}    
+                > Add contact                        
+                </Button>
+
+                    {/* data-testid="addbutton"
+                    color="primary"
+                    className={"test"}
+                    endIcon={<Icon>add</Icon>}
+                    onClick={() => addContact(firstName, lastName, email, role)}
+                >
+                    Add Contact */}
+            </div>
             <div>
                 {ContactList.map((s,i) => <div key={i}>{s.firstName + " " + s.lastName + " " + s.email + " " + s.role}</div>)}
             </div>
@@ -56,7 +93,5 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         
     )
 }
-
-
 
 export default ContactsPage;

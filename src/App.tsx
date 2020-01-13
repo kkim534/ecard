@@ -1,37 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Home } from './pages/home-page/Home';
 import { ContactsPage } from './pages/contacts-page';
-import { Contact, ContactProps} from './pages/contacts-page/contact-model';
 import DataContextProvider from './contexts/data-context';
-
-
-// let person = {
-//   firstName: "Jiyoung",
-//   lastName: "Park",
-//   email: "test@live.com",
-//   role: "Datacom"
-// } as Contact
-
-
-// let dummyContactProps = {
-//   contacts: [person],
-//   recipients: [person, person, person]
-// } as ContactProps
-
-
-
-
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { NavMenu } from './pages/home-page/NavMenu';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <DataContextProvider>
-        <ContactsPage />
+        <Router>
+          <NavMenu />
+          <div>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/AddContact">
+              <ContactsPage />
+            </Route>
+          </div>
+        </Router>
       </DataContextProvider>
     </div>
   );
 }
-
 
 export default App;
