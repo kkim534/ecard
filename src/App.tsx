@@ -11,15 +11,15 @@ const App: React.FC = () => {
     <div className="App">
       <DataContextProvider>
         <Router>
-          <NavMenu/>
+          <NavMenu />
           <div>
-          <Route exact path="/">
-            <Home/> 
+            <Route exact path="/">
+              <Home />
             </Route>
-          <Route exact path="/AddContact">
-            <ContactsPage/>
+            <Route exact path="/AddContact">
+              <ContactsPage />
             </Route>
-            </div>
+          </div>
         </Router>
       </DataContextProvider>
     </div>
