@@ -1,7 +1,9 @@
 import React, { useState, useContext } from 'react'
+import './contacts.css'
 import { Contact } from './contact-model'
-import { TextField, Button, Icon } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import { DataContext } from '../../contexts/data-context';
+import Button from 'react-bootstrap/Button';
 
 export const ContactsPage: React.FunctionComponent = (props: any) => {
     // let { contacts, recipients } = props
@@ -70,17 +72,19 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                     }
                 />                                
             </div>
-            <div>
-                <Button
-                    data-testid="addbutton"
-                    variant="contained"
+            <div className = "btn-addContact">
+                <Button variant="primary" color="primary" size="lg" active
+                    onClick={() => addContact(firstName, lastName, email, role)}    
+                > Add contact                        
+                </Button>
+
+                    {/* data-testid="addbutton"
                     color="primary"
                     className={"test"}
                     endIcon={<Icon>add</Icon>}
                     onClick={() => addContact(firstName, lastName, email, role)}
                 >
-                    Add Contact
-                </Button>
+                    Add Contact */}
             </div>
             <div>
                 {ContactList.map((s,i) => <div key={i}>{s.firstName + " " + s.lastName + " " + s.email + " " + s.role}</div>)}

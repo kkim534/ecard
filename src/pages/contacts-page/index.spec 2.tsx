@@ -23,12 +23,6 @@ const contactPageProps = {
   ]
 } as ContactProps
 
-test('that it matches snapshot', () => {
-  const wrapper = render(<ContactsPage/>);
-
-  expect(wrapper).toMatchSnapshot();
-})
-
 test('add a contact', () => {
   let myContacts: Array<Contact> = [...contactPageProps.contacts]
   const setContacts = (newData: Partial<DataModel>) => {
