@@ -14,10 +14,10 @@ export interface DateState {
 
 export const Home: React.FunctionComponent = (props: any) => {
 
-  let [date, setDate] = useState<DateState>({ startDate: moment(),
-                                  endDate: null
-                                  });                                                                    
-  let [focusedInput, setFocusedInput] = useState(constant.START_DATE);
+  let [date, setDate] = useState<DateState>({ startDate: null,
+                                              endDate: null
+                                            });                                                                    
+  let [focusedInput, setFocusedInput] = useState(null);
 
   return (
     <div>
