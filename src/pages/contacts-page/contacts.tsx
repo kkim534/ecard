@@ -72,20 +72,13 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                     }
                 />                                
             </div>
-            <div className = "btn-addContact">
-                <Button variant="primary" color="primary" size="lg" active
-                    onClick={() => addContact(firstName, lastName, email, role)}    
-                > Add contact                        
-                </Button>
+                <div className = "btn-addContact">
+                <Button variant="primary" type="button" className ="btn btn-light" active
+                        onClick={() => addContact(firstName, lastName, email, role)}    
+                    > Add contact                        
+                    </Button>
 
-                    {/* data-testid="addbutton"
-                    color="primary"
-                    className={"test"}
-                    endIcon={<Icon>add</Icon>}
-                    onClick={() => addContact(firstName, lastName, email, role)}
-                >
-                    Add Contact */}
-            </div>
+                </div>
             <div>
                 {ContactList.map((s,i) => <div key={i}>{s.firstName + " " + s.lastName + " " + s.email + " " + s.role}</div>)}
             </div>

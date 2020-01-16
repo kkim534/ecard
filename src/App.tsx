@@ -5,6 +5,7 @@ import { ContactsPage } from './pages/contacts-page';
 import DataContextProvider from './contexts/data-context';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavMenu } from './pages/home-page/NavMenu';
+import EventsPage from './pages/events-page/events';
 
 const App: React.FC = () => {
   return (
@@ -16,8 +17,11 @@ const App: React.FC = () => {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path="/AddContact">
+            <Route exact path="/addContact">
               <ContactsPage />
+            </Route>
+            <Route exact path="/events">
+              <EventsPage />
             </Route>
           </div>
         </Router>

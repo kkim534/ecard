@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
+import Row from 'react-bootstrap';
+import Col from 'react-bootstrap';
 
 export interface NavMenuState {
   collapsed: boolean;
@@ -17,11 +19,11 @@ export const  NavMenu : React.FunctionComponent = (props: any) => {
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
           <Container>
             <NavbarBrand tag={Link} to="/">ECard</NavbarBrand>
-            <NavbarToggler onClick={() => {setToggleState({collapsed: !toggleState})}} className="mr-2" />
+            <NavbarToggler onClick={() => { setToggleState({ collapsed: !toggleState }) }} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!toggleState} navbar>
               <ul className="navbar-nav flex-grow">
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/">Events</NavLink>
+                  <NavLink tag={Link} className="text-dark" to="/events">Events</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className="text-dark" to="/AddContact">Contact</NavLink>
@@ -34,6 +36,23 @@ export const  NavMenu : React.FunctionComponent = (props: any) => {
           </Container>
         </Navbar>
       </header>
+
+
+    // <Container>
+    //   <Row className="show-grid" >
+    //     <Row className - "dark-back post-pad top-board boarder">
+    //           <Col md={7}>
+    //       <div><b>
+    //         You are invited to write messages for these following events!
+    //             </b>
+
+    //       </div>
+
+    //     </Col>
+    //   </Row>
+    //   </Row>
+    // </Container>
+
     );
-  
+
 }
