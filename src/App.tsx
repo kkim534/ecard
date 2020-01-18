@@ -6,7 +6,7 @@ import DataContextProvider from './contexts/data-context';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavMenu } from './pages/home-page/NavMenu';
 import EventsPage from './pages/events-page/events';
-
+// import { messagePage } from './pages/message-page';
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -29,5 +29,6 @@ const App: React.FC = () => {
     </div>
   );
 }
+
 
 export default App;

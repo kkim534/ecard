@@ -38,20 +38,7 @@ export const  NavMenu : React.FunctionComponent = (props: any) => {
       </header>
 
 
-    // <Container>
-    //   <Row className="show-grid" >
-    //     <Row className - "dark-back post-pad top-board boarder">
-    //           <Col md={7}>
-    //       <div><b>
-    //         You are invited to write messages for these following events!
-    //             </b>
 
-    //       </div>
-
-    //     </Col>
-    //   </Row>
-    //   </Row>
-    // </Container>
 
     );
 
