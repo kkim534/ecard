@@ -23,31 +23,31 @@ interface Istate {
 
 
 
-const [toggleState, setToggleState] = useState<NavMenuState>({ collapsed: true });
+// const [toggleState, setToggleState] = useState<NavMenuState>({ collapsed: true });
 
 
-export const EventsPage: React.FunctionComponent = (eventProps,Istate) => {
+// export const EventsPage: React.FunctionComponent = (eventProps,Istate) => {
 
-    return (
-        <div className="App">
-            <h1> Events </h1>
-            <b>
-                You are invited to write a message for these following events!
-            </b>
-            <Container>
-                <NavbarToggler onClick={() => { setToggleState({ collapsed: !toggleState }) }} className="mr-2" />
-                <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!toggleState} navbar>
-                    <ul className="navbar-nav-flex-grow">
-                        <NavItem>
-                            <NavLink tag={Link} className="text-dark" to="Message">ASB Chritmas 2019/</NavLink>>
-                        </NavItem>
-                    </ul>
-                </Collapse> 
-            </Container>
-        </div >
-    );
-}
+//     return (
+//         <div className="App">
+//             <h1> Events </h1>
+//             <b>
+//                 You are invited to write a message for these following events!
+//             </b>
+//             <Container>
+//                 <NavbarToggler onClick={() => { setToggleState({ collapsed: !toggleState }) }} className="mr-2" />
+//                 <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!toggleState} navbar>
+//                     <ul className="navbar-nav-flex-grow">
+//                         <NavItem>
+//                             <NavLink tag={Link} className="text-dark" to="Message">ASB Chritmas 2019/</NavLink>>
+//                         </NavItem>
+//                     </ul>
+//                 </Collapse> 
+//             </Container>
+//         </div >
+//     );
+// }
 
 
 
-export default EventsPage;
+// export default EventsPage;
