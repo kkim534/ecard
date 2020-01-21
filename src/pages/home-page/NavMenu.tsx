@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
 
@@ -15,7 +15,6 @@ export const  NavMenu : React.FunctionComponent = (props: any) => {
     return (
       <header>
         <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
-          <Container>
             <NavbarBrand tag={Link} to="/">ECard</NavbarBrand>
             <NavbarToggler onClick={() => {setToggleState({collapsed: !toggleState})}} className="mr-2" />
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!toggleState} navbar>
@@ -31,7 +30,6 @@ export const  NavMenu : React.FunctionComponent = (props: any) => {
                 </NavItem>
               </ul>
             </Collapse>
-          </Container>
         </Navbar>
       </header>
     );
