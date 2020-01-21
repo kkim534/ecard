@@ -1,10 +1,13 @@
 import React, { useState, useContext } from 'react';
 import './message.css';
-import { Form, FormGroup, Col, Button, Row } from 'react-bootstrap';
-// import {message} from './message-model';
+import { Form, Col, Button, Row } from 'react-bootstrap';
 
-// import { Button} from 'react-bootstrap';
-// import {DataContext} from '../../contexts/data-context';
+// interface EventState { 
+//     eventList:any[],
+//     currentEvent: any,
+//     eventImage:any,
+//     eventName: any
+// }
 
 
 export interface messages {
@@ -14,73 +17,70 @@ export interface messages {
     message: string
 }
 
-//Submit EventMessage
-//const handleSubmit = (evt:any) => 
+// class EventMessage extends React.Component <{}, messages>{ (Get Events from API)
+//     public constructor(props:any){
+//         super(props);
+//         this.state = {
+//             currentEvent:{"id": 11,"name":"2019 ASB Christmas","startDate":"2019-12-22T00:00:00","endDate":"2019"}
+
+//         }
+//         }
+//     }
+// }
 
 export const MessagePage: React.FunctionComponent = (props: any) => {
-
-    let [EventID, setEventID] = useState(" ")
-    let [SenderID, setSenderID] = useState(" ")
-    let [RecipientID, setRecipientID] = useState(" ")
-    let [message, setMessage] = useState(" ")
-
 
     return (
         <>
             <Col md={12} className="dark-back">
                 <div className="container">
-                    <h1>(EventName from back-end)</h1>
+                    <h2>EventName</h2>
                     <Row>
-                        <Col></Col>
+                        <Col md={4}>
+                            <h3>Details</h3>
+                            <li>ASB 2019 call events information from API
+                                ASB 2020
+                            </li>
+                        </Col>
                         <Col>
                             <Form>
                                 <div className="form-group row">
-                                    <label className="control-label col-md-2" htmlFor="EventID">Event Name</label>
-                                    <div className="col-md-3">
-                                        <input className="form-control" type="textarea" name="EventID" required />
-                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <label className="control-label col-md-2" htmlFor="SenderID">Sender Name</label>
-                                    <div className="col-md-3">
+                                    <label className="control-label col-md-2" htmlFor="SenderID"> Sender</label>
+                                    <div className="col-md-6">
                                         <input className="form-control" type="textarea" name="Sender ID" required />
                                     </div>
                                 </div>
                                 <div className="form-group row">
-                                    <label className="control-label col-md-2" htmlFor="RecipientID"> Recipient Name</label>
-                                    <div className="col-md-3">
+                                    <label className="control-label col-md-2" htmlFor="RecipientID"> Recipient</label>
+                                    <div className="col-md-6">
                                         <input className="form-control" type="textarea" name="Recipient ID" required />
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                 <div className="input-group">
                                     <div className="input-group-prepend">
-                                        <label className="control-label col lg-2" htmlFor="Message"></label>
-                                        <span className="input-group-text"> Message Here</span>
+                                        <label className="control-label col lg-3" htmlFor="Message"></label>
+                                        <span className="input-group-text"> Message </span>
                                     </div>
-                                    <textarea className="form-control" aria-label=" Message Here"></textarea>
+                                    <textarea className="form-control" aria-label=" Message"></textarea>
                                 </div>
                                 </div>
                                 <div>
                                     <Row className="justify-container">
                                         <Col md="10"></Col>
                                         <Col md="2">
-                                            <Button type="submit" className="btn btn-primary md-2"> Submit</Button>
+                                            <Button type="submit" className="btn-btn"> Submit</Button>
                                         </Col>
                                     </Row>
-
                                 </div>
                             </Form>
                         </Col>
                     </Row>
-
                 </div>
             </Col>
         </>
-
     )
 };
-
 
 
 
