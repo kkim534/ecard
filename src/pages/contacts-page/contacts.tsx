@@ -10,7 +10,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     useEffect(() =>{
         if(organisationList.length == 1)
         {
-        fetch("https://datacomecarduat.azurewebsites.net/api/Organisations")
+        fetch("http://datacomecarduat.azurewebsites.net/api/Organisations")
             .then(response => response.json())
             .then(data => {
                 setOrganisationList(data);
