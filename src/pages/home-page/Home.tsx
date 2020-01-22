@@ -118,6 +118,10 @@ export const Home: React.FunctionComponent = (props: any) => {
                   id="sendDate" // PropTypes.string.isRequired,
                   onClose={focused => setFocus(false)}
                 />
+                <img
+                  src="https://datacomcardsa.blob.core.windows.net/uploads/2020-01-20/20200120T234507949.jpg"
+                  alt="new"
+                />
               </div>
               <Row>
                 <Col>
