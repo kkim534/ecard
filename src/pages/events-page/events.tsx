@@ -1,53 +1,110 @@
-import React, { useState, useContext } from 'react'
-import * as ReactDOM from 'react-dom';
-import './events.css';
-// import { DataContext } from '../../contexts/data-context';
-// // import Button from 'react-bootstrap/Button';
-// import { Container, Collapse, NavItem, NavLink} from 'react-bootstrap';
-// import {NavbarToggler}from 'react-strap';
-import { Collapse, Container, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import 'react-dates/initialize';
+import React,{ useState,useEffect } from 'react';
+import { NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import './NavMenu.css';
 
-interface NavMenuState {
-    collapsed: boolean;
+// import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+
+ 
+
+export default React.PureComponent;
+
+export const pureComponentAvailable = true;
+
+ 
+
+export const Event: React.FunctionComponent = (props: any) => { 
+
+  // static displayName = Home.name;
+
+  const initialStateValue = [{ id: 0, name: "" }];
+
+  const[EventList,setEventList] = useState(initialStateValue);
+
+ 
+
+  useEffect(() =>{
+
+    if(EventList.length == 1)
+
+    {
+
+    fetch('https://datacomecarduat.azurewebsites.net/api/Events')
+
+        .then(response => response.json())
+
+        .then(data => {
+
+            setEventList(data);
+
+            
+
+        });
+
+    }
+
+},[EventList]);
+
+ 
+
+  return (
+
+    <div>
+
+      <h1>Events</h1>
+
+          <p>This portal is used for sending greeting messages to ASB</p>
+
+          <div className="form-group row">
+
+          <div className="col-md-3">
+
+          <label htmlFor="Title">Please select an event to send message</label>
+
+          </div>
+
+              <ul className="navbar-nav flex-grow">
+
+                {EventList.map(event =>
+
+                                   
+
+                                   <NavLink tag={Link} className="text-dark" to={`AddCotact/${event.id}`}>
+
+                                     {event.name}
+
+                                   </NavLink>
+
+                            )}
+
+              </ul>
+
+          </div>
+
+      {/* <DateRangePicker
+
+        startDate={null} // momentPropTypes.momentObj or null,
+
+        startDateId="start_date_id" // PropTypes.string.isRequired,
+
+        endDate={null} // momentPropTypes.momentObj or null,
+
+        endDateId="end_date_id" // PropTypes.string.isRequired,
+
+        onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
+
+        focusedInput={null} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+
+        // onFocusChange={focusedInput => this.setState({ focusedInput })} // PropTypes.func.isRequired,
+
+      /> */}
+
+    </div>
+
+  );
+
+  
+
 }
-interface eventProps {
-    eventName: any,
-    startDate: any,
-    endDate: Date,
-    sendDate: Date,
-}
-interface Istate {
-    open: boolean
-}
-
-
-
-// const [toggleState, setToggleState] = useState<NavMenuState>({ collapsed: true });
-
-
-// export const EventsPage: React.FunctionComponent = (eventProps,Istate) => {
-
-//     return (
-//         <div className="App">
-//             <h1> Events </h1>
-//             <b>
-//                 You are invited to write a message for these following events!
-//             </b>
-//             <Container>
-//                 <NavbarToggler onClick={() => { setToggleState({ collapsed: !toggleState }) }} className="mr-2" />
-//                 <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!toggleState} navbar>
-//                     <ul className="navbar-nav-flex-grow">
-//                         <NavItem>
-//                             <NavLink tag={Link} className="text-dark" to="Message">ASB Chritmas 2019/</NavLink>>
-//                         </NavItem>
-//                     </ul>
-//                 </Collapse> 
-//             </Container>
-//         </div >
-//     );
-// }
-
-
-
-// export default EventsPage;

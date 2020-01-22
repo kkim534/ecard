@@ -2,13 +2,6 @@ import React, { useState, useContext } from 'react';
 import './message.css';
 import { Form, Col, Button, Row } from 'react-bootstrap';
 
-// interface EventState { 
-//     eventList:any[],
-//     currentEvent: any,
-//     eventImage:any,
-//     eventName: any
-// }
-
 
 export interface messages {
     EventID: string;
@@ -17,16 +10,6 @@ export interface messages {
     message: string
 }
 
-// class EventMessage extends React.Component <{}, messages>{ (Get Events from API)
-//     public constructor(props:any){
-//         super(props);
-//         this.state = {
-//             currentEvent:{"id": 11,"name":"2019 ASB Christmas","startDate":"2019-12-22T00:00:00","endDate":"2019"}
-
-//         }
-//         }
-//     }
-// }
 
 export const MessagePage: React.FunctionComponent = (props: any) => {
 
@@ -38,8 +21,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                     <Row>
                         <Col md={4}>
                             <h3>Details</h3>
-                            <li>ASB 2019 call events information from API
-                                ASB 2020
+                            <li>API
                             </li>
                         </Col>
                         <Col>

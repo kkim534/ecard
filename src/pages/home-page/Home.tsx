@@ -5,6 +5,7 @@ import { DateRangePicker, SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment';
 
+
 var constant = require('react-dates/constants')
 export interface DateState {
   startDate: moment.Moment | null;
