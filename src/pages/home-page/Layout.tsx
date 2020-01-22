@@ -3,7 +3,6 @@ import { Container } from 'reactstrap';
 import { NavMenu } from './NavMenu';
 
 export const Layout : React.FunctionComponent = (props: any) => { 
-  // static displayName = Layout.name;
 
   return (
     <div>

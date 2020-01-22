@@ -1,0 +1,14 @@
+.form-container {
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+}
+
+.date-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
