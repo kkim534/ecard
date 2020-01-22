@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Contact } from "../pages/contacts-page/contact-model";
+// import { Message } from "../pages/message-page/message-model";
 
 export interface DataModel {
-  contacts: Contact[],
+  contacts: Contact[]
 }
 
 export interface DataContextModel {
