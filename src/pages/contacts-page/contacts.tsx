@@ -1,30 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
+import "./contacts.css";
 
 export const ContactsPage: React.FunctionComponent = (props: any) => {
     // let { contacts, recipients } = props
     const initialStateValue = [{ id: 0, name: " --- Select A Organisation --- " }];
     const [organisationList, setOrganisationList] = useState(initialStateValue);
     const [errors, setErrors] = useState([{ name: "" }]);
-
     useEffect(() => {
         if (organisationList.length == 1) {
-            fetch('https://datacomecarduat.azurewebsites.net/api/Organisations')
+            fetch("https://datacomecarduat.azurewebsites.net/api/Organisations")
                 .then(response => response.json())
                 .then(data => {
                     setOrganisationList(data);
                 });
         }
     }, [organisationList]);
-
     function validateForm(event: any) {
         var validEmailRegex =
-            RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
-
+            RegExp(/^(([^<>()\[\]\.,;:\s@\“]+(\.[^<>()\[\]\.,;:\s@\“]+)*)|(\“.+\“))@(([^<>()[\]\.,;:\s@\“]+\.)+[^<>()[\]\.,;:\s@\“]{2,})$/i);
         if (!validEmailRegex.test(event.target["Email"].value)) {
             setErrors([
                 ...errors,
                 {
                     name: "Email is not in valid format"
+
                 }
             ]);
         }
@@ -40,24 +39,22 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
             var consolidatedError = '';
             for (let i = 0; i <= errors.length - 1; i++) {
                 if (errors[i].name != "")
-                    consolidatedError = consolidatedError + " \n" + errors[i].name;
+                    consolidatedError = consolidatedError + "\n" + errors[i].name;
             }
             alert(consolidatedError);
             return;
         }
-        fetch('https://datacomecarduat.azurewebsites.net/api/People', {
-            method: 'Post',
+        fetch("https://datacomecarduat.azurewebsites.net/api/People", {
+            method: "Post",
             body: data,
         }).then(response => response)
             .then((responseJson) => {
-                if (responseJson.status == 200)
-                    alert("Contact " + FN + " " + LN + " created successfully");
+                if (responseJson.status === 200)
+                    alert("Contact " + FN + "" + LN + "created successfully");
                 else
                     alert("Error while creating contact");
             })
-
     }
-
     return (
         <>
             <form onSubmit={handleSubmit} >

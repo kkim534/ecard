@@ -41,7 +41,7 @@ export const Home: React.FunctionComponent = (props: any) => {
       alert("Please select files first");
     }
   }
-  
+
   // DateRangePicker
   let [focusedInput, setFocusedInput] = useState(null);
   let [date, setDate] = useState<DateState>({
@@ -117,10 +117,6 @@ export const Home: React.FunctionComponent = (props: any) => {
                   onFocusChange={(focused: any) => setFocus(focused)} // PropTypes.func.isRequired
                   id="sendDate" // PropTypes.string.isRequired,
                   onClose={focused => setFocus(false)}
-                />
-                <img
-                  src="https://datacomcardsa.blob.core.windows.net/uploads/2020-01-20/20200120T234507949.jpg"
-                  alt="new"
                 />
               </div>
               <Row>
