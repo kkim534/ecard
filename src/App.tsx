@@ -6,6 +6,7 @@ import DataContextProvider from './contexts/data-context';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavMenu } from './pages/home-page/NavMenu';
 import { MessagePage } from './pages/message-page/message';
+import { OrganizationPage } from './pages/organization-page/organization';
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -21,6 +22,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path="/message">
               <MessagePage />
+            </Route>
+            <Route exact path="/organization">
+              <OrganizationPage />
             </Route>
           </div>
         </Router>
