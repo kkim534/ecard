@@ -50,8 +50,12 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
             return;
         }
         fetch("https://datacomecarduat.azurewebsites.net/api/People", {
+            headers: {
+                'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'},
+            
+        
             method: "Post",
-            body: data,
+            body: data
         }).then(response => response)
             .then((responseJson) => {
                 if (responseJson.status === 200)
