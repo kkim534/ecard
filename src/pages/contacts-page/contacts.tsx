@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./contacts.css";
-
+import {Button,Col,Row} from 'react-bootstrap';
 export const ContactsPage: React.FunctionComponent = (props: any) => {
     // let { contacts, recipients } = props
 
@@ -9,11 +9,11 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     const [errors, setErrors] = useState([{ name: "" }]);
     useEffect(() => {
         if (organisationList.length == 1) {
-            fetch("https://datacomecarduat.azurewebsites.net/api/Organisations",{
+            fetch("https://datacomecarduat.azurewebsites.net/api/Organisations", {
                 headers: {
                     'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
                 }
-            })
+            }) 
                 .then(response => response.json())
                 .then(data => {
                     setOrganisationList(data);
@@ -43,19 +43,22 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         if (errors.length > 1) {
             var consolidatedError = '';
             for (let i = 0; i <= errors.length - 1; i++) {
-                if (errors[i].name != "")
+                if (errors[i].name != " ")
                     consolidatedError = consolidatedError + "\n" + errors[i].name;
             }
             alert(consolidatedError);
             return;
         }
         fetch("https://datacomecarduat.azurewebsites.net/api/People", {
+            headers: {
+                'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
+            },
             method: "Post",
             body: data,
         }).then(response => response)
             .then((responseJson) => {
                 if (responseJson.status === 200)
-                    alert("Contact " + FN + "" + LN + "created successfully");
+                    alert("Contact " + FN + " " + LN + " created successfully");
                 else
                     alert("Error while creating contact");
             })
@@ -64,31 +67,31 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         <>
             <form onSubmit={handleSubmit} >
                 <div className="form-group row">
-                    <label className="control-label col-sm-1" htmlFor="FirstName">First Name</label>
+                    <label className="control-label col-sm-6" htmlFor="FirstName">First Name</label>
                     <div className="col-md-3">
                         <input className="form-control" type="text" minLength={1} maxLength={50} name="FirstName" required />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className=" control-label col-sm-1" htmlFor="Surname">Last Name</label>
+                    <label className=" control-label col-sm-6" htmlFor="Surname">Last Name</label>
                     <div className="col-md-3">
                         <input className="form-control" type="text" minLength={1} maxLength={50} name="Surname" required />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className=" control-label col-sm-1" htmlFor="Email">Email</label>
+                    <label className=" control-label col-sm-6" htmlFor="Email">Email</label>
                     <div className="col-md-3">
                         <input className="form-control" type="text" maxLength={100} name="Email" required />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className=" control-label col-sm-1" htmlFor="Role">Role</label>
+                    <label className=" control-label col-sm-6" htmlFor="Role">Role</label>
                     <div className="col-md-3">
                         <input className="form-control" type="text" minLength={5} maxLength={50} name="Role" required />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className=" control-label col-sm-1" htmlFor="Organisation">Organisation</label>
+                    <label className=" control-label col-sm-6" htmlFor="Organisation">Organisation</label>
                     <div className="col-md-3">
                         <select className="form-control" data-val="true" name="OrganisationId" required>
                             {organisationList.map(org =>
@@ -98,25 +101,28 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className=" control-label col-sm-1" htmlFor="Role">Department</label>
+                    <label className=" control-label col-sm-6" htmlFor="Role">Department</label>
                     <div className="col-md-3">
                         <input className="form-control" type="text" name="Department" />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label className=" control-label col-sm-1" htmlFor="Team">Team</label>
+                    <label className=" control-label col-sm-6" htmlFor="Team">Team</label>
                     <div className="col-md-3">
                         <input className="form-control" type="text" name="Team" />
                     </div>
                 </div>
-                <div className="form-group row">
-                    <div className="col-md-3">
-                        <button type="submit" className="btn btn-default">Submit</button>
-                        <button className="btn">Cancel</button>
-                    </div>
+                <div>
+                    <Row className="justify-container">
+                        <Col md="7"></Col>
+                        <Col md="2">
+                            <div className="float-right">
+                                <Button type="submit" className="btn-btn page-btn ">Submit</Button>
+                                <Button type="reset" className="btn-btn page-btn">Clear</Button>
+                            </div>
+                        </Col>
+                    </Row>
                 </div>
-
-
             </form>
         </>
 
