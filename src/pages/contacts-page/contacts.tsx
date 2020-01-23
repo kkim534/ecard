@@ -43,7 +43,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         if (errors.length > 1) {
             var consolidatedError = '';
             for (let i = 0; i <= errors.length - 1; i++) {
-                if (errors[i].name != " ")
+                if (errors[i].name != "")
                     consolidatedError = consolidatedError + "\n" + errors[i].name;
             }
             alert(consolidatedError);
