@@ -1,18 +1,34 @@
-import React, { useState, useContext } from 'react';
+import React, { useState,useEffect, useContext } from 'react';
 import './message.css';
 import { Form, Col, Button, Row } from 'react-bootstrap';
 
 
 export interface messages {
-    EventID: string;
-    SenderID: Int8Array,
-    RecipientID: Int8Array,
-    message: string
+    EventId: string;
+    SenderId: Int8Array,
+    RecipientId: Int8Array,
+    pmessage: string
 }
 
 
 export const MessagePage: React.FunctionComponent = (props: any) => {
 
+    const initialState = [{id:0, name: "---Recipient from Contacts---"}];
+    const[contactList,setContactList]= useState(initialState);
+    const[errors,setErrors]=useState([{name: ""}]);
+    useEffect(() => {
+        if (contactList.length == 1){
+            fetch("https://datacomecarduat.azurewebsites.net/api/People", {
+                headers: {
+                    'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
+                }
+            }) 
+            .then(response=>response.json())
+            .then(data => {
+                setContactList(data);
+            });
+        }
+    },);
     return (
         <>
             <Col md={12} className="dark-back">
@@ -20,40 +36,57 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                     <h2>EventName</h2>
                     <Row>
                         <Col md={4}>
-                            <h3>Details</h3>
-                            <li>API
+                            <h3>Event Details</h3>
+                            <li>2019 ASB Christmas 
                             </li>
+
                         </Col>
                         <Col>
                             <Form>
                                 <div className="form-group row">
-                                    <label className="control-label col-md-2" htmlFor="SenderID"> Sender</label>
-                                    <div className="col-md-6">
-                                        <input className="form-control" type="textarea" name="Sender ID" required />
+                                    <div className="input-group mb-5">
+                                        <div className="input-group-prepend">
+                                            <label className="control-label col-md-2" id="Sender" htmlFor="SenderId">Sender</label>
+                                        </div>
+                                        <input type="text" className="form-control" name="SenderId" required/>
                                     </div>
                                 </div>
+                                {/* <div className="form-group row">
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <label className="input-group-text" id="Recipient" htmlFor="RecipientId">Recipient</label>
+                                        </div>
+                                        <input type="text" className="form-control" name="RecipientId" required/>
+                                    </div>
+                                </div> */}
+                                
                                 <div className="form-group row">
-                                    <label className="control-label col-md-2" htmlFor="RecipientID"> Recipient</label>
-                                    <div className="col-md-6">
-                                        <input className="form-control" type="textarea" name="Recipient ID" required />
+                                    <div className ="input-group-prepend">
+                                    <label className =" control-label col-md-5" htmlFor="RecipientId">Recipient</label>
                                     </div>
-                                </div>
-                                <div className="form-group row">
-                                <div className="input-group">
-                                    <div className="input-group-prepend">
-                                        <label className="control-label col lg-3" htmlFor="Message"></label>
-                                        <span className="input-group-text"> Message </span>
+                                        <div className="col-md-10">
+                                            <select className ="form-control" data-val="true" name="RecipientId" required>
+                                            {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.name}---Recipient</option>)}
+                                        </select>
                                     </div>
-                                    <textarea className="form-control" aria-label=" Message"></textarea>
+                                    <div className ="form-group row">
                                 </div>
-                                </div>
-                                <div>
-                                    <Row className="justify-container">
-                                        <Col md="10"></Col>
-                                        <Col md="2">
-                                            <Button type="submit" className="btn-btn"> Submit</Button>
-                                        </Col>
-                                    </Row>
+
+                                <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <label className="control-label col-md-5" id="Sender" htmlFor="SenderId">Message</label>
+                                        </div>
+                                        <textarea className="form-control" aria-label="Message"></textarea>
+                                    </div>
+                              
+                                    <div>
+                                        <Row className="justify-container">
+                                            <Col md="10"></Col>
+                                            <Col md="2">
+                                                <Button type="submit" className="btn-btn"> Submit</Button>
+                                            </Col>
+                                        </Row>
+                                    </div>
                                 </div>
                             </Form>
                         </Col>
