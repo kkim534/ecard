@@ -1,12 +1,15 @@
 .btn-addContact {
-    background-color: rgb(255, 255, 255);
-    color: white;
-  }
+  background-color: rgb(255, 255, 255);
+  color: white;
+}
 .page-btn{
-  margin: 7px;
-  color: yellowgreen;
+margin: 7px;
+color: yellowgreen;
 }
 .form-group {
-  text-align: center;
+text-align: center;
 }
 
+.btn-btn{
+color:white;
+}
