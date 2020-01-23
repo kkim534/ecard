@@ -117,8 +117,8 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                         <Col md="7"></Col>
                         <Col md="2">
                             <div className="float-right">
-                                <Button type="submit" className="btn-btn page-btn ">Submit</Button>
-                                <Button type="reset" className="btn-btn page-btn">Clear</Button>
+                                <Button type="submit" className="page-btn ">Submit</Button>
+                                <Button type="reset" className="page-btn">Clear</Button>
                             </div>
                         </Col>
                     </Row>
