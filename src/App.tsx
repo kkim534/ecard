@@ -14,7 +14,7 @@ const App: React.FC = () => {
         <Router>
           <NavMenu />
           <div>
-            <Route exact path="/">
+            <Route exact path="/events">
               <Home />
             </Route>
             <Route exact path="/addContact">
