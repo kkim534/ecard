@@ -51,14 +51,6 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                         <input type="text" className="form-control" name="SenderId" required/>
                                     </div>
                                 </div>
-                                {/* <div className="form-group row">
-                                    <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
-                                            <label className="input-group-text" id="Recipient" htmlFor="RecipientId">Recipient</label>
-                                        </div>
-                                        <input type="text" className="form-control" name="RecipientId" required/>
-                                    </div>
-                                </div> */}
                                 
                                 <div className="form-group row">
                                     <div className ="input-group-prepend">
