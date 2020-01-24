@@ -12,7 +12,7 @@ export interface DateState {
   endDate: moment.Moment | null;
 }
 
-export interface sendDateState {
+export interface singleDateState {
   sendDate: moment.Moment | null;
 }
 
@@ -65,12 +65,14 @@ export const Home: React.FunctionComponent = (props: any) => {
   let [focusedInput, setFocusedInput] = useState(null);
   let [date, setDate] = useState<DateState>({
     startDate: null,
-    endDate: null,
+    endDate: null
   });
 
   // SingleDatePicker
-  let [sendDateState, setSendDate] = useState<sendDateState>({ sendDate: null });
   let [focus, setFocus] = useState(false);
+  let [sendDateState, setSendDate] = useState<singleDateState>({
+    sendDate: null
+  });
 
   return (
     <>
@@ -125,16 +127,16 @@ export const Home: React.FunctionComponent = (props: any) => {
                     startDate: startDate,
                     endDate: endDate
                   })}
-                  onClose={focusedInput => setFocusedInput(null)}
+                  onClose={({startDate, endDate}) => setFocusedInput(null)}
                 />
 
                 <SingleDatePicker
                   date={sendDateState.sendDate} // momentPropTypes.momentObj or null
-                  onDateChange={(date: any) => setSendDate({ sendDate: date })} // PropTypes.func.isRequired
+                  onDateChange={(date: any) => setSendDate({sendDate: date})} // PropTypes.func.isRequired
                   focused={focus} // PropTypes.bool
-                  onFocusChange={(focused: any) => setFocus(focused)} // PropTypes.func.isRequired
+                  onClose={(date) => setFocus(false)}
+                  onFocusChange={(focused) => setFocus(true)} // PropTypes.func.isRequired
                   id="SendDate" // PropTypes.string.isRequired,
-                  onClose={focused => setFocus(false)}
                 />
               </div>
               <Row>
