@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Nav, UncontrolledDropdown, DropdownToggle, DropdownItem, DropdownMenu, NavbarText } from 'reactstrap';
+import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Nav, UncontrolledDropdown, DropdownToggle, DropdownItem, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
 export interface NavMenuState {
@@ -19,9 +19,6 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
           <Nav className="navbar-nav flex-grow" navbar>
             <NavItem>
               <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} className="text-dark" to="/events">Events</NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag={Link} className="text-dark" to="/addContact">Contact</NavLink>

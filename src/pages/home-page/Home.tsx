@@ -4,7 +4,6 @@ import { DateRangePicker, SingleDatePicker } from 'react-dates';
 import { Form, Button, Col, Row } from 'react-bootstrap';
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment';
-import axios from 'axios';
 
 var constant = require('react-dates/constants')
 export interface DateState {
@@ -12,65 +11,62 @@ export interface DateState {
   endDate: moment.Moment | null;
 }
 
-export interface sendDateState {
+export interface singleDateState {
   sendDate: moment.Moment | null;
 }
 
 export const Home: React.FunctionComponent = (props: any) => {
-  // Api Key
-  const [username, password] = Buffer.from("99d73981-632e-4aa7-8499-169e5da08ef3", "base64").toString().split(":");
-  
-  // set organisation drop down list
-  const initialStateValue = [{ id: 0, name: " --- Select A Organisation --- " }];
-  const [organisationList, setOrganisationList] = useState(initialStateValue);
-  useEffect(() => {
-    if (organisationList.length === 1) {
-        fetch("https://datacomecarduat.azurewebsites.net/api/Organisations", {
-            headers: {
-                "ApiKey": "99d73981-632e-4aa7-8499-169e5da08ef3"
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                setOrganisationList(data);
-            });
-    }
-}, [organisationList]);
-
-  const handleSubmit = (e: any) => {
-    console.log(e.target.files)
-    console.log("hello")
-    e.preventDefault(); //prevent browser refresh
-    var apiBaseUrl = axios.defaults.baseURL + "user/upload";
-    if (e.target.files.length > 0) {
-      var filesArray = e.target.files;
-      let f = new FormData();
-      for (var i in filesArray) {
-        //console.log("files",filesArray[i][0]);
-        f = new FormData();
-        f.append("File", filesArray[i][0])
-        axios.post("https://datacomecarduat.azurewebsites.net/Events", f, {
-          headers: { 'Content-Type': 'multipart/form-data' },
-          auth: { username, password }
-        });
-      }
-      alert("File upload completed");
-    }
-    else {
-      alert("Please select files first");
-    }
-  }
 
   // DateRangePicker
   let [focusedInput, setFocusedInput] = useState(null);
   let [date, setDate] = useState<DateState>({
     startDate: null,
-    endDate: null,
+    endDate: null
   });
 
   // SingleDatePicker
-  let [sendDateState, setSendDate] = useState<sendDateState>({ sendDate: null });
   let [focus, setFocus] = useState(false);
+  let [sendDateState, setSendDate] = useState<singleDateState>({
+    sendDate: null
+  });
+
+  // set organisation drop down list
+  const initialStateValue = [{ id: 0, name: " --- Select A Organisation --- " }];
+  const [organisationList, setOrganisationList] = useState(initialStateValue);
+
+  useEffect(() => {
+    if (organisationList.length === 1) {
+      fetch("https://datacomecarduat.azurewebsites.net/api/Organisations", {
+        headers: {
+          "ApiKey": "99d73981-632e-4aa7-8499-169e5da08ef3"
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
+          setOrganisationList(data);
+        });
+    }
+  }, [organisationList]);
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault(); //prevent browser refresh
+
+    let f = new FormData(e.target);
+
+    fetch("https://datacomecarduat.azurewebsites.net/api/Events", {
+      headers: {
+        'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
+      },
+      method: "Post",
+      body: f,
+    }).then(response => response)
+      .then((responseJson) => {
+        if (responseJson.status === 200)
+          alert("Event created successfully");
+        else
+          alert("Error while creating event");
+      })
+  }
 
   return (
     <>
@@ -79,28 +75,28 @@ export const Home: React.FunctionComponent = (props: any) => {
       <div className='form-container container'>
         <Row className="justify-content-md-center">
           <Col md="auto">
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Row>
                 <Form.Group as={Col} controlId="Name">
                   <Form.Label>Event name</Form.Label>
-                  <Form.Control type="textarea" placeholder="Enter event name" />
+                  <Form.Control type="textarea" name="Name" placeholder="Enter event name" />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="DatacomMessage">
                   <Form.Label>Datacom message</Form.Label>
-                  <Form.Control type="textarea" placeholder="Enter corporate message" />
+                  <Form.Control type="textarea" name="DatacomMessage" placeholder="Enter corporate message" />
                 </Form.Group>
               </Form.Row>
 
               <Form.Group controlId="Details">
                 <Form.Label>Event details</Form.Label>
-                <Form.Control as="textarea" rows="3" placeholder="Enter event details" />
+                <Form.Control as="textarea" rows="3" name="Details" placeholder="Enter event details" />
               </Form.Group>
 
               <Form.Row>
                 <Form.Group as={Col} controlId="OrganisationId">
                   <Form.Label>Select organisation</Form.Label>
-                  <Form.Control as="select" required>
+                  <Form.Control as="select" name="OrganisationId" required>
                     {organisationList.map(org =>
                       <option key={org.id} value={org.id}>{org.name}</option>
                     )}
@@ -108,7 +104,7 @@ export const Home: React.FunctionComponent = (props: any) => {
                 </Form.Group>
                 <Form.Group as={Col} controlId="File">
                   <Form.Label>Upload corporation image</Form.Label>
-                  <Form.Control type="file" accept="image/*">
+                  <Form.Control type="file" name="File" accept="image/*">
                   </Form.Control>
                 </Form.Group>
               </Form.Row>
@@ -125,22 +121,22 @@ export const Home: React.FunctionComponent = (props: any) => {
                     startDate: startDate,
                     endDate: endDate
                   })}
-                  onClose={focusedInput => setFocusedInput(null)}
+                  onClose={({ startDate, endDate }) => setFocusedInput(null)}
                 />
 
                 <SingleDatePicker
                   date={sendDateState.sendDate} // momentPropTypes.momentObj or null
                   onDateChange={(date: any) => setSendDate({ sendDate: date })} // PropTypes.func.isRequired
                   focused={focus} // PropTypes.bool
-                  onFocusChange={(focused: any) => setFocus(focused)} // PropTypes.func.isRequired
+                  onClose={(date) => setFocus(false)}
+                  onFocusChange={(focused) => setFocus(true)} // PropTypes.func.isRequired
                   id="SendDate" // PropTypes.string.isRequired,
-                  onClose={focused => setFocus(false)}
                 />
               </div>
               <Row>
                 <Col>
                   <br />
-                  <Button variant="primary" type="submit" onSubmit={handleSubmit}>
+                  <Button variant="primary" type="submit">
                     Submit
                   </Button>
                 </Col>
