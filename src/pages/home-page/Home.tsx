@@ -53,7 +53,7 @@ export const Home: React.FunctionComponent = (props: any) => {
 
     let f = new FormData(e.target);
 
-    fetch("https://localhost:5001/api/Events", {
+    fetch("https://datacomecarduat.azurewebsites.net/api/Events", {
       headers: {
         'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
       },
