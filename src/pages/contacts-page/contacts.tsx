@@ -195,11 +195,14 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                 </div>
                 <div>
                     <Row className="justify-container">
+
                         <Col md="4"></Col>
                         <Col md="7">
                             <div >
                                 <Button type="submit" className="btn-btn page-btn ">Submit</Button>
                                 <Button type="reset" className="btn-btn page-btn">Clear</Button>
+
+                       
                             </div>
                         </Col>
                     </Row>
