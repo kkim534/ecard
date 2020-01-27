@@ -21,9 +21,6 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
               <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} className="text-dark" to="/events">Events</NavLink>
-            </NavItem>
-            <NavItem>
               <NavLink tag={Link} className="text-dark" to="/addContact">Contact</NavLink>
             </NavItem>
             <NavItem>
