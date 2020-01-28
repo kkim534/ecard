@@ -9,6 +9,8 @@ import { Footer } from './pages/layout/footer/Footer';
 import { MessagePage } from './pages/message-page/message';
 import { OrganizationPage } from './pages/organization-page/organization';
 import { CreateEvent } from './pages/events-page/CreateEvent';
+import { ExportPage } from './pages/export-page/export';
+
 
 const App: React.FC = () => {
   return (
@@ -28,6 +30,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path="/organization">
               <OrganizationPage />
+            </Route>
+            <Route exact path="/export">
+              <ExportPage />
             </Route>
             <Route exact path="/message">
               <MessagePage />

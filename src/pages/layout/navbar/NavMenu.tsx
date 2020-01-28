@@ -15,9 +15,9 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
           <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
           <NavDropdown title="Admin" id="basic-nav-dropdown" alignRight>
             <NavDropdown.Item as={Link} to="/event">Events</NavDropdown.Item>
-            <NavDropdown.Item as={Link} to="/message">Organization</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/message">Organisation</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} to="#action/3.4">Export</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/export">Export Messages</NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

@@ -144,7 +144,6 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
           <Modal.Title>{people.id == 0 ? "Add Contact" : "Edit Contact"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            
             <form id="Contactform" onSubmit={handleSubmit} >
                 <input type="hidden" id ="Id" name="Id" defaultValue = {people.id} ></input>
                 <div className="form-group row">
@@ -201,8 +200,6 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                             <div >
                                 <Button type="submit" className="btn-btn page-btn ">Submit</Button>
                                 <Button type="reset" className="btn-btn page-btn">Clear</Button>
-
-                       
                             </div>
                         </Col>
                     </Row>
