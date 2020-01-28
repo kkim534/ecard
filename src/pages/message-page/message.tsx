@@ -1,4 +1,4 @@
-import React, { useState,useEffect, useContext } from 'react';
+import React, { useState,useEffect } from 'react';
 import './message.css';
 import { Form, Col, Button, Row } from 'react-bootstrap';
 export interface messages {
@@ -11,20 +11,40 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
 
     const initialState = [{id:0, firstName:"",surname:""}];
     const[contactList,setContactList]= useState(initialState);
-    const[errors,setErrors]=useState([{name: ""}]);
     useEffect(() => {
-        if (contactList.length == 1){
+        if (contactList.length == 1) {
             fetch("https://datacomecarduat.azurewebsites.net/api/People", {
                 headers: {
                     'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
                 }
-            }) 
-            .then(response=>response.json())
-            .then(data => {
-                setContactList(data);
-            });
+            })
+                .then(response => response.json())
+                .then(data => {
+                    setContactList(data);
+                });
+        }
+    }, [contactList]);
+
+    const handleSubmit = (e: any) => {
+        e.preventDefault();
+
+        let f = new FormData(e.target);
+
+        fetch("https://datacomecarduat.azurewebsites.net/api/Messages", {
+            headers: {
+                'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
+            },
+            method: "Post",
+            body: f,
+        }).then(response => response)
+            .then((responseJson) => {
+                if (responseJson.status === 200)
+                    alert("Message saved successfully");
+                else
+                    alert("Error while saving message");
+            })
     }
-}, [contactList]);
+
     return (
         <>
             <Col md={12} className="dark-back">
@@ -33,37 +53,39 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                     <Row>
                         <Col md={4}>
                             <h3>Event Details</h3>
-                            <li>2019 ASB Christmas 
+                            <li>2019 ASB Christmas
                             </li>
                         </Col>
                         <Col>
-                            <Form>
+                            <Form onSubmit ={handleSubmit}>
                                 <div className="form-group row">
-                                    <div className="input-group mb-5">
+                                    <div className="input-group mb-3">
                                         <div className="input-group-prepend">
-                                            <label className="control-label col-md-2" id="Sender" htmlFor="SenderId">Sender</label>
+                                            <label className="control-label col-md-2" id="senderId" htmlFor="senderId">Sender</label>
                                         </div>
-                                        <input type="text" className="form-control" minLength={1} maxLength={50} name="SenderId" required/>
+                                        <input type="text" className="form-control" minLength={1} maxLength={50} name="senderId" required />
                                     </div>
                                 </div>
                                 <div className="form-group row">
-                    <label className=" control-label col-sm-6" htmlFor="RecipientId">Recipient</label>
-                    <div className="col-md-3">
-                        <select className="form-control" data-val="true" name="RecipientId" required>
-                        {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName+" "+recip.surname}</option>
-                            )}
-                        </select>
-                        </div>
-                                    <div className ="form-group row">
-                                </div>
-
-                                <div className="input-group mb-3">
+                                    <div className="input-group mb-3">
                                         <div className="input-group-prepend">
-                                            <label className="control-label col-md-5" id="Sender" htmlFor="SenderId">Message</label>
+                                            <label className=" control-label col-md-2" htmlFor="recipientId">Recipient</label>
                                         </div>
-                                        <textarea className="form-control" aria-label="Message"></textarea>
+                                        
+                                            <select className="form-control" data-val="true" name="recipientId" required>
+                                                {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
+                                                )}
+                                            </select>
+                                        
                                     </div>
-                              
+                                    <div className="form-group row">
+                                    </div>
+                                    <div className="input-group mb-3">
+                                        <div className="input-group-prepend">
+                                            <label className="control-label col-md-5" id="pmessage" htmlFor="pmessage">Message</label>
+                                        </div>
+                                        <textarea className="form-control" name="pmessage"aria-label="pmessage"></textarea>
+                                    </div>
                                     <div>
                                         <Row className="justify-container">
                                             <Col md="10"></Col>
