@@ -8,7 +8,7 @@ import { NavMenu } from './pages/layout/navbar/NavMenu';
 import { Footer } from './pages/layout/footer/Footer';
 import { MessagePage } from './pages/message-page/message';
 import { OrganizationPage } from './pages/organization-page/organization';
-
+import { CreateEvent } from './pages/events-page/CreateEvent';
 
 const App: React.FC = () => {
   return (
@@ -17,11 +17,14 @@ const App: React.FC = () => {
         <Router>
           <NavMenu />
           <div>
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route exact path="/contact">
               <ContactsPage />
             </Route>
             <Route exact path="/event">
-              <Home />
+              <CreateEvent />
             </Route>
             <Route exact path="/organization">
               <OrganizationPage />
@@ -30,12 +33,11 @@ const App: React.FC = () => {
               <MessagePage />
             </Route>
           </div>
-          <Footer/>
+          <Footer />
         </Router>
       </DataContextProvider>
     </div>
   );
 }
-
 
 export default App;
