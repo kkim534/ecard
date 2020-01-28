@@ -20,3 +20,8 @@ a.navbar-brand {
     width: 200px;
   
   }
+
+  .nav-alignments{
+    padding-left: 6%;
+    padding-right: 6%;
+  }
