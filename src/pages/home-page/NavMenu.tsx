@@ -40,6 +40,9 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
                 <DropdownItem tag={Link} className="text-dark" to="/organization">
                   Create Organization
                 </DropdownItem>
+                <DropdownItem tag={Link} className="text-dark" to="/export">
+                  Export Messages
+                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
