@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'reactstrap';
-import { NavMenu } from './NavMenu';
+import { NavMenu } from './navbar/NavMenu';
+import { Footer } from './footer/Footer';
 
 export const Layout : React.FunctionComponent = (props: any) => { 
 
@@ -10,6 +11,7 @@ export const Layout : React.FunctionComponent = (props: any) => {
       <Container>
         {props.children}
       </Container>
+      <Footer />
     </div>
   );
 }

@@ -4,9 +4,12 @@ import { Home } from './pages/home-page/Home';
 import { ContactsPage } from './pages/contacts-page';
 import DataContextProvider from './contexts/data-context';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { NavMenu } from './pages/home-page/NavMenu';
+import { NavMenu } from './pages/layout/navbar/NavMenu';
+import { Footer } from './pages/layout/footer/Footer';
 import { MessagePage } from './pages/message-page/message';
 import { OrganizationPage } from './pages/organization-page/organization';
+
+
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -14,19 +17,20 @@ const App: React.FC = () => {
         <Router>
           <NavMenu />
           <div>
-            <Route exact path="/events">
-              <Home />
-            </Route>
-            <Route exact path="/addContact">
+            <Route exact path="/contact">
               <ContactsPage />
             </Route>
-            <Route exact path="/message">
-              <MessagePage />
+            <Route exact path="/event">
+              <Home />
             </Route>
             <Route exact path="/organization">
               <OrganizationPage />
             </Route>
+            <Route exact path="/message">
+              <MessagePage />
+            </Route>
           </div>
+          <Footer/>
         </Router>
       </DataContextProvider>
     </div>
