@@ -8,6 +8,7 @@ import { NavMenu } from './pages/layout/navbar/NavMenu';
 import { Footer } from './pages/layout/footer/Footer';
 import { MessagePage } from './pages/message-page/message';
 import { OrganizationPage } from './pages/organization-page/organization';
+import { ExportPage } from './pages/export-page/export';
 
 
 const App: React.FC = () => {
@@ -28,6 +29,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path="/message">
               <MessagePage />
+            </Route>
+            <Route exact path="/export">
+              <ExportPage/>
             </Route>
           </div>
           <Footer/>
