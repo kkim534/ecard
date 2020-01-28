@@ -9,6 +9,7 @@ import { Footer } from './pages/layout/footer/Footer';
 import { MessagePage } from './pages/message-page/message';
 import { OrganizationPage } from './pages/organization-page/organization';
 import { ExportPage } from './pages/export-page/export';
+import { CreateEvent } from './pages/events-page/CreateEvent';
 
 
 const App: React.FC = () => {
@@ -18,11 +19,14 @@ const App: React.FC = () => {
         <Router>
           <NavMenu />
           <div>
+            <Route exact path="/">
+              <Home />
+            </Route>
             <Route exact path="/contact">
               <ContactsPage />
             </Route>
             <Route exact path="/event">
-              <Home />
+              <CreateEvent />
             </Route>
             <Route exact path="/organization">
               <OrganizationPage />
@@ -34,12 +38,11 @@ const App: React.FC = () => {
               <ExportPage/>
             </Route>
           </div>
-          <Footer/>
+          <Footer />
         </Router>
       </DataContextProvider>
     </div>
   );
 }
-
 
 export default App;
