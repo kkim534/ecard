@@ -1,9 +1,10 @@
 import 'react-dates/initialize';
 import React, { useState, useEffect } from 'react';
 import { DateRangePicker, SingleDatePicker } from 'react-dates';
-import { Form, Button, Col, Row } from 'react-bootstrap';
+import { Form, Button, Col, Row, Container } from 'react-bootstrap';
 import 'react-dates/lib/css/_datepicker.css';
 import moment from 'moment';
+import './CreateEvent.css'
 
 var constant = require('react-dates/constants')
 export interface DateState {
@@ -69,81 +70,78 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
 
   return (
     <>
+      <Container id="createEvent-container" fluid>
 
-      <div className='form-container container'>
-      <h1>Create events</h1>
-        <Row className="justify-content-md-center">
-          <Col md="auto">
-            <Form onSubmit={handleSubmit}>
-              <Form.Row>
-                <Form.Group as={Col} controlId="Name">
-                  <Form.Label>Event name</Form.Label>
-                  <Form.Control type="textarea" name="Name" placeholder="Enter event name" />
-                </Form.Group>
+        <h1>Create an event</h1>
 
-                <Form.Group as={Col} controlId="DatacomMessage">
-                  <Form.Label>Datacom message</Form.Label>
-                  <Form.Control type="textarea" name="DatacomMessage" placeholder="Enter corporate message" />
-                </Form.Group>
-              </Form.Row>
+        <Form onSubmit={handleSubmit}>
+          <Form.Row>
+            <Form.Group as={Col} controlId="Name">
+              <Form.Label>Event name</Form.Label>
+              <Form.Control type="textarea" name="Name" placeholder="Enter event name" />
+            </Form.Group>
 
-              <Form.Group controlId="Details">
-                <Form.Label>Event details</Form.Label>
-                <Form.Control as="textarea" rows="3" name="Details" placeholder="Enter event details" />
-              </Form.Group>
+            <Form.Group as={Col} controlId="DatacomMessage">
+              <Form.Label>Datacom message</Form.Label>
+              <Form.Control type="textarea" name="DatacomMessage" placeholder="Enter corporate message" />
+            </Form.Group>
+          </Form.Row>
 
-              <Form.Row>
-                <Form.Group as={Col} controlId="OrganisationId">
-                  <Form.Label>Select organisation</Form.Label>
-                  <Form.Control as="select" name="OrganisationId" required>
-                    {organisationList.map(org =>
-                      <option key={org.id} value={org.id}>{org.name}</option>
-                    )}
-                  </Form.Control>
-                </Form.Group>
-                <Form.Group as={Col} controlId="File">
-                  <Form.Label>Upload corporation image</Form.Label>
-                  <Form.Control type="file" name="File" accept="image/*">
-                  </Form.Control>
-                </Form.Group>
-              </Form.Row>
+          <Form.Group controlId="Details">
+            <Form.Label>Event details</Form.Label>
+            <Form.Control as="textarea" rows="3" name="Details" placeholder="Enter event details" />
+          </Form.Group>
 
-              <div className='date-container'>
-                <DateRangePicker
-                  startDate={date.startDate}
-                  startDateId="StartDate"
-                  endDate={date.endDate}
-                  endDateId="EndDate"
-                  focusedInput={focusedInput}
-                  onFocusChange={focusedInput => setFocusedInput(focusedInput || constant.END_DATE)}
-                  onDatesChange={({ startDate, endDate }) => setDate({
-                    startDate: startDate,
-                    endDate: endDate
-                  })}
-                  onClose={({ startDate, endDate }) => setFocusedInput(null)}
-                />
+          <Form.Row>
+            <Form.Group as={Col} controlId="OrganisationId">
+              <Form.Label>Select organisation</Form.Label>
+              <Form.Control as="select" name="OrganisationId" required>
+                {organisationList.map(org =>
+                  <option key={org.id} value={org.id}>{org.name}</option>
+                )}
+              </Form.Control>
+            </Form.Group>
+            <Form.Group as={Col} controlId="File">
+              <Form.Label>Upload corporation image</Form.Label>
+              <Form.Control type="file" name="File" accept="image/*">
+              </Form.Control>
+            </Form.Group>
+          </Form.Row>
 
-                <SingleDatePicker
-                  date={sendDateState.sendDate} // momentPropTypes.momentObj or null
-                  onDateChange={(date: any) => setSendDate({ sendDate: date })} // PropTypes.func.isRequired
-                  focused={focus} // PropTypes.bool
-                  onClose={(date) => setFocus(false)}
-                  onFocusChange={(focused) => setFocus(true)} // PropTypes.func.isRequired
-                  id="SendDate" // PropTypes.string.isRequired,
-                />
-              </div>
-              <Row>
-                <Col>
-                  <br />
-                  <Button variant="primary" type="submit">
-                    Submit
+          <div className='date-container'>
+            <DateRangePicker
+              startDate={date.startDate}
+              startDateId="StartDate"
+              endDate={date.endDate}
+              endDateId="EndDate"
+              focusedInput={focusedInput}
+              onFocusChange={focusedInput => setFocusedInput(focusedInput || constant.END_DATE)}
+              onDatesChange={({ startDate, endDate }) => setDate({
+                startDate: startDate,
+                endDate: endDate
+              })}
+              onClose={({ startDate, endDate }) => setFocusedInput(null)}
+            />
+
+            <SingleDatePicker
+              date={sendDateState.sendDate} // momentPropTypes.momentObj or null
+              onDateChange={(date: any) => setSendDate({ sendDate: date })} // PropTypes.func.isRequired
+              focused={focus} // PropTypes.bool
+              onClose={(date) => setFocus(false)}
+              onFocusChange={(focused) => setFocus(true)} // PropTypes.func.isRequired
+              id="SendDate" // PropTypes.string.isRequired,
+            />
+          </div>
+          <Row>
+            <Col>
+              <br />
+              <Button variant="primary" type="submit">
+                Submit
                   </Button>
-                </Col>
-              </Row>
-            </Form>
-          </Col>
-        </Row>
-      </div>
+            </Col>
+          </Row>
+        </Form>
+      </Container>
     </>
   );
 }
