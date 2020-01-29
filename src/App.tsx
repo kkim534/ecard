@@ -7,7 +7,7 @@ import DataContextProvider from './contexts/data-context';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavMenu } from './pages/layout/navbar/NavMenu';
 import { MessagePage } from './pages/message-page/message';
-import { OrganizationPage } from './pages/organization-page/organization';
+import { OrganisationPage } from './pages/organisation-page/organisation';
 import { CreateEvent } from './pages/events-page/CreateEvent';
 import { ExportPage } from './pages/export-page/export';
 
@@ -31,10 +31,10 @@ const App: React.FC = () => {
               <Route exact path="/event">
                 <CreateEvent />
               </Route>
-              <Route exact path="/organization">
-                <OrganizationPage />
+              <Route exact path="/organisation">
+                <OrganisationPage />
               </Route>
-              <Route exact path="/message">
+              <Route path="/message/:eventId">
                 <MessagePage />
               </Route>
               <Route exact path="/export">
