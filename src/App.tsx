@@ -31,10 +31,6 @@ const App: React.FC = () => {
               <Route exact path="/event">
                 <CreateEvent />
               </Route>
-
-              <Route exact path="/organisation">
-                <OrganisationPage />
-              </Route>
               <Route path="/message/:eventId">
                 <MessagePage />
               </Route>

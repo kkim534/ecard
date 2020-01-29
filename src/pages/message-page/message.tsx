@@ -72,50 +72,37 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                     <h2>{event["name"]}</h2>
                     <Row>
                         <Col md={4}>
-                            <li>{event["details"]}</li>                            
-                            <li>{event["datacomMessage"]}</li>                            
+                            <li>{event["details"]}</li>
+                            <li>{event["datacomMessage"]}</li>
                         </Col>
                         <Col>
                             <Form onSubmit={handleSubmit}>
-                                <div className="form-group row">
-                                    <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
-                                            <label className="control-label col-md-2" id="senderId" htmlFor="senderId">Sender</label>
-                                        </div>
-                                        <select className="form-control" data-val="true" name="senderId" required>
-                                            {contactList.map(sender => <option key={sender.id} value={sender.id}>{sender.firstName + " " + sender.surname}</option>
-                                            )}
-                                        </select>                                    </div>
-                                </div>
-                                <div className="form-group row">
-                                    <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
-                                            <label className=" control-label col-md-2" htmlFor="recipientId">Recipient</label>
-                                        </div>
-
-                                        <select className="form-control" data-val="true" name="recipientId" required>
+                                <Form.Group as={Row} controlId="formPlaintextEmail">
+                                    <Form.Label column sm="2">Sender</Form.Label>
+                                    <Col sm="10">
+                                        <input type="text" className="form-control" minLength={1} maxLength={50} name="senderId" required />
+                                    </Col>
+                                </Form.Group>
+                                <Form.Group as={Row} controlId="formPlaintextPassword">
+                                    <Form.Label column sm="2">Message</Form.Label>
+                                    <Col sm="10">
+                                    <select className="form-control" data-val="true" name="recipientId" required>
                                             {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
                                             )}
                                         </select>
-
-                                    </div>
-                                    <div className="form-group row">
-                                    </div>
-                                    <div className="input-group mb-3">
-                                        <div className="input-group-prepend">
-                                            <label className="control-label col-md-5" id="pmessage" htmlFor="pmessage">Message</label>
-                                        </div>
+                                    </Col>
+                                </Form.Group>
+                                <Form.Group as={Row} controlId="formPlaintextPassword">
+                                    <Form.Label column sm="2">Message</Form.Label>
+                                    <Col sm="10">
                                         <textarea className="form-control" name="pmessage" aria-label="pmessage"></textarea>
-                                    </div>
-                                    <div>
-                                        <Row className="justify-container">
-                                            <Col md="10"></Col>
-                                            <Col md="2">
-                                                <Button type="submit" className="btn-btn"> Submit</Button>
-                                            </Col>
-                                        </Row>
-                                    </div>
-                                </div>
+                                    </Col>
+                                </Form.Group>
+                                <Form.Group as={Row}>
+                                    <Col sm={{ span: 10, offset: 2 }}>
+                                        <Button type="submit" className="btn-btn">Submit</Button>
+                                    </Col>
+                                </Form.Group>
                             </Form>
                         </Col>
                     </Row>
@@ -124,12 +111,3 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
         </>
     )
 };
-
-
-
-
-
-
-
-
-
