@@ -11,7 +11,6 @@ export const Layout : React.FunctionComponent = (props: any) => {
       <Container>
         {props.children}
       </Container>
-      <Footer />
     </div>
   );
 }
