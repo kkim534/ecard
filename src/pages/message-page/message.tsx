@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import './message.css';
-import { Form, Col, Button, Row } from 'react-bootstrap';
+import { Form, Col, Button, Row, Modal } from 'react-bootstrap';
 export interface messages {
     EventId: string;
     SenderId: Int8Array,
@@ -9,8 +9,8 @@ export interface messages {
 }
 export const MessagePage: React.FunctionComponent = (props: any) => {
 
-    const initialState = [{ id: 0, firstName: "", surname: "" }];
-    const [contactList, setContactList] = useState(initialState);
+    const initialState = [{id:0, firstName:"",surname:""}];
+    const[contactList,setContactList]= useState(initialState);
     useEffect(() => {
         if (contactList.length == 1) {
             fetch("https://datacomecarduat.azurewebsites.net/api/People", {
@@ -24,6 +24,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                 });
         }
     }, [contactList]);
+    
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
@@ -93,12 +94,4 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
         </>
     )
 };
-
-
-
-
-
-
-
-
 

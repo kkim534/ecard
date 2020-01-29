@@ -28,7 +28,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     const handlePeople = () => setPeople(people);
 
     useEffect(() => {
-        if (peopleList.length == 1) {
+        if (peopleList.length === 1) {
             fetch("https://datacomecarduat.azurewebsites.net/api/People", {
                 headers: {
                     'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
@@ -43,7 +43,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
 
 
     useEffect(() => {
-        if (organisationList.length == 1) {
+        if (organisationList.length === 1) {
             fetch("https://datacomecarduat.azurewebsites.net/api/Organisations", {
                 headers: {
                     'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
