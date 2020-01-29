@@ -45,12 +45,12 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
           </li>
         </ul>
 
-        <div className="sidebar-image">
-          <img className="menuImage" src={imagejpg} alt="menu"/>
-        </div>
-
         <div className="sidebar-footer">
-          &copy; {new Date().getFullYear()} Copyright <a href="https://www.datacom.co.nz/"> Datacom</a>
+          <div><img className="sidebar-image" src={imagejpg} /></div>
+
+          <div>
+            &copy; {new Date().getFullYear()} Copyright <a href="https://www.datacom.co.nz/"> Datacom</a>
+          </div>
         </div>
       </div>
     </Nav>
