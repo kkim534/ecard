@@ -26,7 +26,7 @@ export const ExportPage: React.FunctionComponent = (props: any) => {
                 <div className="container">
                     {/* <h3>Export Message to CSV</h3> */}
                     <Row>
-                        <Col md={6}>
+                        <Col>
                         <h3>Export Message to CSV</h3>
                             <div className="form-group row">
                                 <div className="input-group mb-3">
