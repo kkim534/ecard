@@ -200,7 +200,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         <>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{people.id == 0 ? "Add Contact" : "Edit Contact"}</Modal.Title>
+                    <Modal.Title>{people.id === 0 ? "Add Contact" : "Edit Contact"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
 

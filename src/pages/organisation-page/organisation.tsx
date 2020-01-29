@@ -1,7 +1,6 @@
+		
 import React from 'react';
 import {Row,Col,Form,Button} from 'react-bootstrap'; 
-
-
 export const OrganisationPage: React.FunctionComponent = (props: any) => {
    
     const handleSubmit = (e: any) => {
@@ -53,4 +52,3 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
         </>
     )
 };
-

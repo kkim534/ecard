@@ -1,7 +1,6 @@
 import React from 'react';
 import { Nav,NavbarBrand} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import imagejpg from './../../../assets/Ecardimage.png';
 import './NavMenu.css';
 
@@ -11,7 +10,9 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
     <Nav id="sidebar">
       <div className="sidebar-content">
         <div className="sidebar-header">
-          <Nav.Link as={Link}to="/"className="logo"><img className="logo" src="/logo.PNG" /></Nav.Link>
+
+          <img className="logo" src="/logo.PNG" alt="datacom logo"/>
+
         </div>
 
         <ul className="components">
@@ -34,7 +35,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
             <Nav.Link as={Link} to="/event" className="nav-item-text">Events</Nav.Link>
           </li>
           <li className="menuitem-alignments">
-            <Nav.Link as={Link} to="/message" className="nav-item-text">Organization</Nav.Link>
+            <Nav.Link as={Link} to="/message/1" className="nav-item-text">Organisation</Nav.Link>
           </li>
           <li className="menuitem-alignments">
             <Nav.Link as={Link} to="/organisation" className="nav-item-text">Create Organization</Nav.Link>
@@ -45,7 +46,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
         </ul>
 
         <div className="sidebar-image">
-          <img className="menuImage" src={imagejpg} />
+          <img className="menuImage" src={imagejpg} alt="menu"/>
         </div>
 
         <div className="sidebar-footer">
