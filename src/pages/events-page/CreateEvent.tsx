@@ -69,9 +69,9 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
 
   return (
     <>
-      <h1>Create events</h1>
 
       <div className='form-container container'>
+      <h1>Create events</h1>
         <Row className="justify-content-md-center">
           <Col md="auto">
             <Form onSubmit={handleSubmit}>

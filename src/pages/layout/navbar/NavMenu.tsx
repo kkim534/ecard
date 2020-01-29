@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
+import { Nav,NavbarBrand} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import imagejpg from './../../../assets/Ecardimage.png';
@@ -11,7 +11,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
     <Nav id="sidebar">
       <div className="sidebar-content">
         <div className="sidebar-header">
-          <img className="logo" src="/logo.PNG" />
+          <Nav.Link as={Link}to="/"className="logo"><img className="logo" src="/logo.PNG" /></Nav.Link>
         </div>
 
         <ul className="components">
@@ -35,6 +35,9 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
           </li>
           <li className="menuitem-alignments">
             <Nav.Link as={Link} to="/message" className="nav-item-text">Organization</Nav.Link>
+          </li>
+          <li className="menuitem-alignments">
+            <Nav.Link as={Link} to="/organisation" className="nav-item-text">Create Organization</Nav.Link>
           </li>
           <li className="menuitem-alignments">
             <Nav.Link as={Link} to="/export" className="nav-item-text">Export</Nav.Link>
