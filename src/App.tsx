@@ -45,6 +45,4 @@ const App: React.FC = () => {
   );
 }
 
-//import { Footer } from './pages/layout/footer/Footer';  temporarily removed Footer from site 
-
 export default App;

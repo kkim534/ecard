@@ -196,29 +196,6 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         { name: 'team', title: 'Team' },
     ]);
 
-    const commitChanges = (changes: any) => {
-        let changedRows;
-        // if (added) {
-        //   const startingAddedId = rows.length > 0 ? rows[rows.length - 1].id + 1 : 0;
-        //   changedRows = [
-        //     ...rows,
-        //     ...added.map((row, index) => ({
-        //       id: startingAddedId + index,
-        //       ...row,
-        //     })),
-        //   ];
-        // }
-        // if (changed) {
-        //   changedRows = rows.map(row => (changed[row.id] ? { ...row, ...changed[row.id] } : row));
-        // }
-        // if (deleted) {
-        //   const deletedSet = new Set(deleted);
-        //   changedRows = rows.filter(row => !deletedSet.has(row.id));
-        // }
-        // setRows(changedRows);
-    };
-
-
     return (
         <>
             <Modal show={show} onHide={handleClose}>
@@ -313,16 +290,8 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                                     defaultSorting={[{ columnName: 'firstName', direction: 'asc' }]}
                                 />
                                 <IntegratedSorting />
-                                <EditingState
-                                    onCommitChanges={commitChanges}
-                                />
                                 <Table />
                                 <TableHeaderRow showSortingControls />
-                                <TableEditRow />
-                                <TableEditColumn
-                                    showEditCommand
-                                    showDeleteCommand
-                                />
                                 <Toolbar />
                                 <SearchPanel />
                                 <PagingPanel />
