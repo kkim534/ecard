@@ -2,19 +2,28 @@ import React, { useState, useEffect } from 'react';
 import './message.css';
 import { Form, Col, Button, Row } from 'react-bootstrap';
 import { useParams } from "react-router";
-// export interface messages {
-//     EventId: string;
-//     SenderId: Int8Array,
-//     RecipientId: Int8Array,
-//     pmessage: string
-// }
 
 export const MessagePage: React.FunctionComponent = (props: any) => {
 
     const initialState = [{ id: 0, firstName: "", surname: "" }];
     const [contactList, setContactList] = useState(initialState);
 
+    const initialEvent = [{ id: 0, Name: "", Details: "", DatacomMessage: "" }];
+    const [event, setEvent] = useState(initialEvent);
+
     let { eventId } = useParams();
+    
+    fetch("https://datacomecarduat.azurewebsites.net/api/Events/"+eventId, {
+        headers: {
+            'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            setContactList(data);
+        });
+        
+    
 
     console.log(eventId);
     useEffect(() => {
