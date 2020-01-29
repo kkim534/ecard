@@ -8,24 +8,25 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
     const initialState = [{ id: 0, firstName: "", surname: "" }];
     const [contactList, setContactList] = useState(initialState);
 
-    const initialEvent = [{ id: 0, Name: "", Details: "", DatacomMessage: "" }];
+    const initialEvent = { id: 0, name: "", details: "", datacomMessage: "" };
     const [event, setEvent] = useState(initialEvent);
 
     let { eventId } = useParams();
-    
-    fetch("https://datacomecarduat.azurewebsites.net/api/Events/"+eventId, {
-        headers: {
-            'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            setContactList(data);
-        });
-        
-    
 
-    console.log(eventId);
+    useEffect(() => {
+        if (event["id"] === 0) {
+            fetch("https://datacomecarduat.azurewebsites.net/api/Events/" + eventId, {
+                headers: {
+                    'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    setEvent(data);
+                });
+        }
+    }, [event, eventId]);
+
     useEffect(() => {
         if (contactList.length === 1) {
             fetch("https://datacomecarduat.azurewebsites.net/api/People", {
@@ -49,7 +50,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
             f.append('eventId', eventId);
         }
 
-        fetch("https://localhost:5001/api/Messages", {
+        fetch("https://datacomecarduat.azurewebsites.net/api/Messages", {
             headers: {
                 'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
             },
@@ -68,12 +69,11 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
         <>
             <Col md={12} className="dark-back">
                 <div className="container">
-                    <h2>EventName</h2>
+                    <h2>{event["name"]}</h2>
                     <Row>
                         <Col md={4}>
-                            <h3>Event Details</h3>
-                            <li>2019 ASB Christmas
-                            </li>
+                            <li>{event["details"]}</li>                            
+                            <li>{event["datacomMessage"]}</li>                            
                         </Col>
                         <Col>
                             <Form onSubmit={handleSubmit}>

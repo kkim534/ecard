@@ -230,8 +230,8 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                         <td>{ppl.department}</td>
                         <td>{ppl.team}</td>
                         <td>
-                            <a className="action" href="#" onClick={(id) => handleEdit(ppl)}>Edit</a>  |
-                            <a className="action" href="#" onClick={(id) => handleDelete(ppl)}>Delete</a>
+                            <a className="action" href="/" onClick={(id) => handleEdit(ppl)}>Edit</a>  |
+                            <a className="action" href="/" onClick={(id) => handleDelete(ppl)}>Delete</a>
                         </td>
                     </tr>
                 )}
