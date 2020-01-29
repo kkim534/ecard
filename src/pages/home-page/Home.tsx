@@ -1,15 +1,16 @@
 import 'react-dates/initialize';
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import {Col} from 'react-bootstrap';
+import { Row, Col, Card, Button, Container } from 'react-bootstrap';
 import 'react-dates/lib/css/_datepicker.css';
-export default React.PureComponent;
+import "./home.css";
 
+
+export default React.PureComponent;
 
 export const Home: React.FunctionComponent = (props: any) => {
 
-    const initialStateValue = [{ id: 0, name: "" }];
+    const initialStateValue = [{ id: 0, name: "", details: "", endDate: "", image: "" }];
     const [EventList, setEventList] = useState(initialStateValue);
     useEffect(() => {
         if (EventList.length === 1) {
@@ -26,25 +27,31 @@ export const Home: React.FunctionComponent = (props: any) => {
     }, [EventList]);
 
     return (
-        <div>
-            <Col>
-            <h1>Events</h1>
-            <h4>This portal is used for sending greeting messages to ASB</h4>
-            <div className="form-group row">
-                <div className="col-md-3">
-                    <label htmlFor="Title">Please select an event to send message</label>
-                </div>
-                <ul className="navbar-nav flex-grow">
-                    {EventList.map(event =>
-                        <NavLink key={event.id} tag={Link} className="text-dark" to={`message/${event.id}`}>
-                            {event.name}
-                        </NavLink>
-                    )}
-                </ul>
-            </div>
-            </Col>
-        </div>
-        
+        <Container fluid id="home-container">
+            <h3>Datacom E-Card</h3>
+            <p>TODO List: 1. This page is not responsive, designed for 1440 x 635 resolution. Add Media Queries for other resolutions.(https://www.w3schools.com/css/css_rwd_mediaqueries.asp) 2.Need short description about ecard portal(ex: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make)</p>
+            <Row id="card-layout">
+                {
+                    EventList.map(event =>
+                        <Col sm >
+                            <Card className="card-alignments">
+                                <div className="card-img-alignments" >
+                                    <Card.Img variant="top" src={event.image} />
+                                </div>
+
+                                <Card.Body>
+                                    <Card.Title>{event.name}</Card.Title>
+                                    <Card.Text>End Date: {event.endDate}</Card.Text>
+                                    <Card.Text className="card-details-text">{event.details}</Card.Text>
+                                    <Button variant="primary">Greeting</Button>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+
+                    )
+                }
+            </Row>
+        </Container>
     );
 
 }

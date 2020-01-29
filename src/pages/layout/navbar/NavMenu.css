@@ -55,23 +55,22 @@
 }
 
 #sidebar .sidebar-footer{
-  text-align: center;
-  bottom: 0px;
+  position: fixed;
+  bottom: 5px;
   width: 100%;
   color: #998f8e;
 }
 
-.sidebar-image{
-  padding: 2px 15px 5px 20px;
-}
-
-.menuImage{
-  width: 200px;
+#sidebar .sidebar-image{
+  width: 220px;
   height: 150px;
+  text-align: center;
+  padding: 2px 15px 5px 20px;
 }
 
 #sidebar .sidebar-footer a{
   color: #998f8e;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
