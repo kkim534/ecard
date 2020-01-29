@@ -36,7 +36,7 @@ export const Home: React.FunctionComponent = (props: any) => {
                 </div>
                 <ul className="navbar-nav flex-grow">
                     {EventList.map(event =>
-                        <NavLink tag={Link} className="text-dark" to={`AddCotact/${event.id}`}>
+                        <NavLink key={event.id} tag={Link} className="text-dark" to={`message/${event.id}`}>
                             {event.name}
                         </NavLink>
                     )}

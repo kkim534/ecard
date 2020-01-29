@@ -19,7 +19,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     const handlePeople = () => setPeople(people);
 
     useEffect(() => {
-        if (peopleList.length == 1) {
+        if (peopleList.length === 1) {
             fetch("https://datacomecarduat.azurewebsites.net/api/People", {
                 headers: {
                     'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
@@ -34,7 +34,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
 
 
     useEffect(() => {
-        if (organisationList.length == 1) {
+        if (organisationList.length === 1) {
             fetch("https://datacomecarduat.azurewebsites.net/api/Organisations", {
                 headers: {
                     'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
@@ -86,7 +86,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         var id = evt.target["Id"].value;
         var FN = evt.target["FirstName"].value;
         var LN = evt.target["Surname"].value;
-        if(id == "" || id == undefined || id == 0)
+        if(id === "" || id === undefined || id === 0)
         {
             verb = "Post";
             successMessage = "Contact " + FN + " " + LN + " created successfully"
@@ -206,14 +206,6 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                 </div>
             </form>
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleAddContactSubmit}>
-            Save Changes
-          </Button>
-        </Modal.Footer> */}
       </Modal>
       <Button variant="primary" className="float-right" onClick={showAddContact}>
         Create Contact

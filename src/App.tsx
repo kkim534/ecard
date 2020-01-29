@@ -7,10 +7,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { NavMenu } from './pages/layout/navbar/NavMenu';
 import { Footer } from './pages/layout/footer/Footer';
 import { MessagePage } from './pages/message-page/message';
-import { OrganizationPage } from './pages/organization-page/organization';
+import { OrganisationPage } from './pages/organization-page/organization';
 import { CreateEvent } from './pages/events-page/CreateEvent';
 import { ExportPage } from './pages/export-page/export';
-
 
 const App: React.FC = () => {
   return (
@@ -28,14 +27,14 @@ const App: React.FC = () => {
             <Route exact path="/event">
               <CreateEvent />
             </Route>
-            <Route exact path="/organization">
-              <OrganizationPage />
+            <Route exact path="/organisation">
+              <OrganisationPage />
+            </Route>
+            <Route path="/message/:eventId">
+              <MessagePage />
             </Route>
             <Route exact path="/export">
               <ExportPage />
-            </Route>
-            <Route exact path="/message">
-              <MessagePage />
             </Route>
           </div>
           <Footer />
