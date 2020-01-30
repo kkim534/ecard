@@ -51,6 +51,7 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
   const handleSubmit = (e: any) => {
     e.preventDefault(); //prevent browser refresh
 
+
     let f = new FormData(e.target);
     fetch("https://datacomecarduat.azurewebsites.net/api/Events", {
       headers: {
@@ -96,7 +97,8 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
                 <Form.Group as={Col} controlId="OrganisationId">
                   <Form.Label>Select organisation</Form.Label>
                   <Form.Control as="select" name="OrganisationId" required>
-                    {organisationList.map(org =>
+                  <option key={0} value={0}>---Please Select an Organisation</option>
+                  {organisationList.map(org =>
                       <option key={org.id} value={org.id}>{org.name}</option>
                     )}
                   </Form.Control>

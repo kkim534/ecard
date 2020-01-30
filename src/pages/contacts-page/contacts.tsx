@@ -234,6 +234,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                             <label className=" control-label col-sm-4" htmlFor="Organisation">Organisation</label>
                             <div className="col-md-8">
                                 <select id="OrganisationId" className="form-control" data-val="true" defaultValue={people.organisationid} name="OrganisationId" required>
+                                <option key={0} value={0}>---Please Select an Organisation</option>
                                     {organisationList.map(org =>
                                         <option key={org.id} value={org.id}>{org.name}</option>
                                     )}
@@ -260,8 +261,6 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                                     <div >
                                         <Button type="submit" className="btn-btn page-btn ">Submit</Button>
                                         <Button type="reset" className="btn-btn page-btn">Clear</Button>
-
-
                                     </div>
                                 </Col>
                             </Row>
