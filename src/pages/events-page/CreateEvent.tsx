@@ -83,16 +83,16 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
               <Form.Group controlId="eventForm.eventInput1">
 
                 <Form.Label className="col-form-label-lg" style={{width: '100%', textAlign: 'left'}}>Event name</Form.Label>
-                <Form.Control width={20} size="lg" type="textarea" name="eventName" placeholder="Enter the event name" />
+                <Form.Control width={20} size="lg" type="textarea" name="Name" placeholder="Enter the event name" />
 
                 <Form.Label className="col-form-label-lg" style={{width: '100%', textAlign: 'left'}}>Datacom message</Form.Label>
-                <Form.Control size="lg" type="textarea" name="datacomMessage" placeholder="Enter the corporate message" />
+                <Form.Control size="lg" type="textarea" name="DatacomMessage" placeholder="Enter the corporate message" />
 
                 <Form.Label className="col-form-label-lg" style={{width: '100%', textAlign: 'left'}}>Event details</Form.Label>
-                <Form.Control size="lg" as="textarea" rows="3" name="details" placeholder="Enter event details" />
+                <Form.Control size="lg" as="textarea" rows="3" name="Details" placeholder="Enter event details" />
 
                 <Form.Label className="col-form-label-lg" style={{width: '100%', textAlign: 'left'}}>Select organisation</Form.Label>
-                <Form.Control as="select" name="organisationId" required>
+                <Form.Control as="select" name="OrganisationId" required>
                   {organisationList.map(org =>
                     <option key={org.id} value={org.id}>{org.name}</option>
                   )}
