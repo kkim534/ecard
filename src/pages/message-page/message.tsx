@@ -84,9 +84,10 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} controlId="formPlaintextPassword">
-                                    <Form.Label column sm="2">Message</Form.Label>
+                                    <Form.Label column sm="2">Recipient</Form.Label>
                                     <Col sm="10">
-                                    <select className="form-control" data-val="true" name="recipientId" required>
+                                        <select className="form-control" data-val="true" name="recipientId" required>
+                                            <option key={0} value={0}>---Please Select a recipient</option>
                                             {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
                                             )}
                                         </select>
@@ -100,7 +101,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                 </Form.Group>
                                 <Form.Group as={Row}>
                                     <Col sm={{ span: 10, offset: 2 }}>
-                                        <Button type="submit" className="btn-btn">Submit</Button>
+                                        <Button type="submit" className="btn-btn">Save</Button>
                                     </Col>
                                 </Form.Group>
                             </Form>

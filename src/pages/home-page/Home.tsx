@@ -8,7 +8,7 @@ import "./home.css";
 
 export default React.PureComponent;
 
-export const Home: React.FunctionComponent = (props: any) => {
+export const Home: React.FunctionComponent = () => {
 
     const initialStateValue = [{ id: 0, name: "", details: "", endDate: "", image: "" }];
     const [EventList, setEventList] = useState(initialStateValue);

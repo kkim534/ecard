@@ -11,8 +11,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
       <div className="sidebar-content">
         <div className="sidebar-header">
 
-          <img className="logo" src="/logo.PNG" alt="datacom logo"/>
-
+          <NavbarBrand as = {Link} to ="/"><img className="logo" src="/logo.PNG" alt="datacom logo" /></NavbarBrand>
         </div>
 
         <ul className="components">
