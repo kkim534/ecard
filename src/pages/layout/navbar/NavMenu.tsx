@@ -46,7 +46,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
         </ul>
 
         <div className="sidebar-footer">
-          <div><img className="sidebar-image" src={imagejpg} /></div>
+          <div><img className="sidebar-image" src={imagejpg} alt="eCard-owl" /></div>
 
           <div>
             &copy; {new Date().getFullYear()} Copyright <a href="https://www.datacom.co.nz/"> Datacom</a>

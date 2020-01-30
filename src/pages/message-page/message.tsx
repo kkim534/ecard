@@ -43,7 +43,6 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-
         let f = new FormData(e.target);
 
         if (eventId !== undefined) {

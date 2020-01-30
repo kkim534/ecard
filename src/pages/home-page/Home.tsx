@@ -1,9 +1,11 @@
 import 'react-dates/initialize';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Row, Col, Card, Button, Container } from 'react-bootstrap';
+import { NavLink } from 'reactstrap'
+import { Link } from 'react-router-dom';
 import 'react-dates/lib/css/_datepicker.css';
 import "./home.css";
+
 
 
 export default React.PureComponent;
@@ -43,7 +45,9 @@ export const Home: React.FunctionComponent = (props: any) => {
                                     <Card.Title>{event.name}</Card.Title>
                                     <Card.Text>End Date: {event.endDate}</Card.Text>
                                     <Card.Text className="card-details-text">{event.details}</Card.Text>
-                                    <Button variant="primary">Greeting</Button>
+                                    <NavLink key={event.id} tag={Link} className="text-dark" to={`message/${event.id}`}>
+                                        <Button variant="primary">Greeting</Button>
+                                    </NavLink>
                                 </Card.Body>
                             </Card>
                         </Col>
