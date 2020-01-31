@@ -2,7 +2,7 @@
     text-align: center;
   }
 
-.col-form-label-lg .form-label{
+#form-createEvent .eventForm.eventInput1 form.label{
   width: 100%;  
   text-align: left;
 }
