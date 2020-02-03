@@ -12,6 +12,10 @@ export interface DateState {
   endDate: moment.Moment | null;
 }
 
+export interface HTMLInputEvent extends Event {
+  target: HTMLInputElement & EventTarget;
+}
+
 export interface singleDateState {
   sendDate: moment.Moment | null;
 }
@@ -80,7 +84,7 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
               <Form.Group id="eventForm.eventInput1">
 
                 <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Event name:</Form.Label>
-                <Form.Control width={20} size="lg" type="textarea" name="Name" placeholder="Enter the event name" />
+                <Form.Control size="lg" type="textarea" name="Name" placeholder="Enter the event name" />
 
                 <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Datacom message:</Form.Label>
                 <Form.Control size="lg" type="textarea" name="DatacomMessage" placeholder="Enter the corporate message" />
@@ -88,32 +92,38 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
                 <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Event details:</Form.Label>
                 <Form.Control size="lg" as="textarea" rows="3" name="Details" placeholder="Enter event details" />
 
-                <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Select organisation:</Form.Label>
-                <Form.Control as="select" name="OrganisationId" required>
-                  {organisationList.map(org =>
-                    <option key={org.id} value={org.id}>{org.name}</option>
-                  )}
-                </Form.Control>
-
               </Form.Group>
             </Col>
 
             <Col>
-              <Form.Group as={Col} controlId="File">
-                <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Upload event image:</Form.Label>
-                <Form.Control type="file" name="File" accept="image/*" />
+              <p className="col-form-label-lg">Select organisation:</p>
+              <div className="input-group">
+                <div className="input-group-prepend">
+                  <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
+                </div>
+                <select className="custom-select" id="inputGroupSelect01">
+                  {organisationList.map(org =>
+                    <option key={org.id} value={org.id}>{org.name}</option>
+                  )}
+                </select>
+              </div>
 
-                {/* <input type='file' className='custom-file-input' id='customFile' />
-                    <label className='custom-file-label' htmlFor='customFile'>
-                      Choose file
-                    </label> */}
-              </Form.Group>
+              <p className="col-form-label-lg">Upload event image:</p>
+              <div className="input-group input-group">
+                <div className="input-group-prepend">
+                  <span className="input-group-text" id="inputGroupFileAddon1">Upload</span>
+                </div>
+                <div className="custom-file">
+                  <input type="file" name="File" accept="image/*" className="custom-file-input" id="inputGroupFileAddon1" aria-describedby="inputGroupFileAddon1" />
+                  <label className="custom-file-label" htmlFor="inputGroupFileAddon1">Choose file</label>
+                </div>
+              </div>
             </Col>
           </Row>
 
           <Row>
             <Col>
-              <p>Select dates:</p>
+              <p className="col-form-label-lg">Select event dates:</p>
               <DateRangePicker
                 startDate={date.startDate}
                 startDateId="StartDate"
@@ -130,6 +140,7 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
             </Col>
 
             <Col>
+              <p className="col-form-label-lg">Send date:</p>
               <SingleDatePicker
                 date={sendDateState.sendDate} // momentPropTypes.momentObj or null
                 onDateChange={(date: any) => setSendDate({ sendDate: date })} // PropTypes.func.isRequired
