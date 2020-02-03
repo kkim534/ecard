@@ -1,6 +1,5 @@
 import 'react-dates/initialize';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Row, Col, Card, Button, Container } from 'react-bootstrap';
 import 'react-dates/lib/css/_datepicker.css';
 import "./home.css";

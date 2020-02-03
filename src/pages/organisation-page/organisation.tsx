@@ -1,6 +1,9 @@
 		
 import React from 'react';
 import {Row,Col,Form,Button} from 'react-bootstrap'; 
+import './organisation.css';
+
+
 export const OrganisationPage: React.FunctionComponent = (props: any) => {
    
     const handleSubmit = (e: any) => {

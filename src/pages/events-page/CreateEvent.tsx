@@ -51,7 +51,6 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
   const handleSubmit = (e: any) => {
     e.preventDefault(); //prevent browser refresh
 
-
     let f = new FormData(e.target);
     fetch("https://datacomecarduat.azurewebsites.net/api/Events", {
       headers: {
@@ -67,7 +66,6 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
           alert("Error while creating event");
       })
   }
-
   return (
     <>
 
@@ -87,12 +85,10 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
                   <Form.Control type="textarea" name="DatacomMessage" placeholder="Enter corporate message" />
                 </Form.Group>
               </Form.Row>
-
               <Form.Group controlId="Details">
                 <Form.Label>Event details</Form.Label>
                 <Form.Control as="textarea" rows="3" name="Details" placeholder="Enter event details" />
               </Form.Group>
-
               <Form.Row>
                 <Form.Group as={Col} controlId="OrganisationId">
                   <Form.Label>Select organisation</Form.Label>
