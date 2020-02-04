@@ -74,7 +74,6 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
 
   return (
     <>
-
       <Container fluid id="createEvent-container">
         <h1>Create an event</h1>
 
@@ -118,44 +117,48 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
                   <label className="custom-file-label" htmlFor="inputGroupFileAddon1">Choose file</label>
                 </div>
               </div>
+              <Row>
+                <Col>
+                  <p className="col-form-label-lg">Select event dates:</p>
+                </Col>
+                <Col>            
+                  <p className="col-form-label-lg">Send date:</p>
+                </Col>
+              </Row>
+
+              <Row>
+                <Col>
+                  <DateRangePicker
+                    startDate={date.startDate}
+                    startDateId="StartDate"
+                    endDate={date.endDate}
+                    endDateId="EndDate"
+                    focusedInput={focusedInput}
+                    onFocusChange={focusedInput => setFocusedInput(focusedInput || constant.END_DATE)}
+                    onDatesChange={({ startDate, endDate }) => setDate({
+                      startDate: startDate,
+                      endDate: endDate
+                    })}
+                    onClose={({ startDate, endDate }) => setFocusedInput(null)}
+                  />
+                </Col>
+                 <Col>
+                  <SingleDatePicker
+                    date={sendDateState.sendDate} // momentPropTypes.momentObj or null
+                    onDateChange={(date: any) => setSendDate({ sendDate: date })} // PropTypes.func.isRequired
+                    focused={focus} // PropTypes.bool
+                    onClose={(date) => setFocus(false)}
+                    onFocusChange={(focused) => setFocus(true)} // PropTypes.func.isRequired
+                    id="SendDate" // PropTypes.string.isRequired,
+                  />
+                </Col>
+              </Row>
             </Col>
           </Row>
 
-          <Row>
-            <Col>
-              <p className="col-form-label-lg">Select event dates:</p>
-              <DateRangePicker
-                startDate={date.startDate}
-                startDateId="StartDate"
-                endDate={date.endDate}
-                endDateId="EndDate"
-                focusedInput={focusedInput}
-                onFocusChange={focusedInput => setFocusedInput(focusedInput || constant.END_DATE)}
-                onDatesChange={({ startDate, endDate }) => setDate({
-                  startDate: startDate,
-                  endDate: endDate
-                })}
-                onClose={({ startDate, endDate }) => setFocusedInput(null)}
-              />
-            </Col>
-
-            <Col>
-              <p className="col-form-label-lg">Send date:</p>
-              <SingleDatePicker
-                date={sendDateState.sendDate} // momentPropTypes.momentObj or null
-                onDateChange={(date: any) => setSendDate({ sendDate: date })} // PropTypes.func.isRequired
-                focused={focus} // PropTypes.bool
-                onClose={(date) => setFocus(false)}
-                onFocusChange={(focused) => setFocus(true)} // PropTypes.func.isRequired
-                id="SendDate" // PropTypes.string.isRequired,
-              />
-            </Col>
-            <Col>
-              <Button variant="primary" type="submit">
-                Submit
-          </Button>
-            </Col>
-          </Row>
+            <Button className="btn btn-primary float-right" size="lg" type="submit">
+              Submit
+            </Button>
         </Form>
       </Container>
     </>
