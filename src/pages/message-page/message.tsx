@@ -12,6 +12,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
     const [event, setEvent] = useState(initialEvent);
 
     let { eventId } = useParams();
+    
 
     useEffect(() => {
         if (event["id"] === 0) {
@@ -26,6 +27,9 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                 });
         }
     }, [event, eventId]);
+
+    
+
 
     useEffect(() => {
         if (contactList.length === 1) {
@@ -71,7 +75,8 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                 <div className="container">
                     <h2>{event["name"]}</h2>
                     <Row>
-                        <Col md={4}>
+                        <Col md={3}>
+                            <h4>You are invited to write a message for this event!</h4>
                             <li>{event["details"]}</li>
                             <li>{event["datacomMessage"]}</li>
                         </Col>

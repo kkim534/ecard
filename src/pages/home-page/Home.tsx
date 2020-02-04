@@ -28,7 +28,6 @@ export const Home: React.FunctionComponent = () => {
     return (
         <Container fluid id="home-container">
             <h3>Datacom E-Card</h3>
-            <p>TODO List: 1. This page is not responsive, designed for 1440 x 635 resolution. Add Media Queries for other resolutions.(https://www.w3schools.com/css/css_rwd_mediaqueries.asp) 2.Need short description about ecard portal(ex: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make)</p>
             <Row id="card-layout">
                 {
                     EventList.map(event =>
@@ -40,9 +39,9 @@ export const Home: React.FunctionComponent = () => {
 
                                 <Card.Body>
                                     <Card.Title>{event.name}</Card.Title>
-                                    <Card.Text>End Date: {event.endDate}</Card.Text>
+                                    <Card.Text>Due Date: {event.endDate}</Card.Text>
                                     <Card.Text className="card-details-text">{event.details}</Card.Text>
-                                    <Button variant="primary">Greeting</Button>
+                                    <Button variant="primary">Write Message</Button>
                                 </Card.Body>
                             </Card>
                         </Col>

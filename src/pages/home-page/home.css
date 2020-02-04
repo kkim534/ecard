@@ -15,13 +15,13 @@
 
 #card-layout .card-alignments{
     display: inline-block;
-    width: 51vh !important;
-    margin: 5px;
-    padding: 3px;
+    width: 45vh !important;
+    margin: 3px;
+    padding: 5px;
 }
 
 .card-img-alignments{
-    height: 35vh;
+    height: 42vh;
 }
 
 .card-details-text{
