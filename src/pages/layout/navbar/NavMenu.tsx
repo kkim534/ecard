@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav,NavbarBrand} from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import imagejpg from './../../../assets/Ecardimage.png';
 import './NavMenu.css';
@@ -32,13 +32,10 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
             <span>Admin</span>
           </li>
           <li className="menuitem-alignments">
-            <Nav.Link as={Link} to="/event" className="nav-item-text">Events</Nav.Link>
+            <Nav.Link as={Link} to="/event" className="nav-item-text">Create event</Nav.Link>
           </li>
           <li className="menuitem-alignments">
-            <Nav.Link as={Link} to="/message/1" className="nav-item-text">Organisation</Nav.Link>
-          </li>
-          <li className="menuitem-alignments">
-            <Nav.Link as={Link} to="/organisation" className="nav-item-text">Create Organisation</Nav.Link>
+            <Nav.Link as={Link} to="/organisation" className="nav-item-text">Create organisation</Nav.Link>
           </li>
           <li className="menuitem-alignments">
             <Nav.Link as={Link} to="/export" className="nav-item-text">Export</Nav.Link>
@@ -46,7 +43,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
         </ul>
 
         <div className="sidebar-footer">
-          <div><img className="sidebar-image" src={imagejpg} /></div>
+          <div><img className="sidebar-image" src={imagejpg} alt="eCard-owl" /></div>
 
           <div>
             &copy; {new Date().getFullYear()} Copyright <a href="https://www.datacom.co.nz/"> Datacom</a>

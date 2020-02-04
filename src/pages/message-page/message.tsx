@@ -43,7 +43,6 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        
         let f = new FormData(e.target);
 
         if (eventId !== undefined) {
@@ -80,13 +79,15 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                 <Form.Group as={Row} controlId="formPlaintextEmail">
                                     <Form.Label column sm="2">Sender</Form.Label>
                                     <Col sm="10">
-                                        <input type="text" className="form-control" minLength={1} maxLength={50} name="senderId" required />
-                                    </Col>
+                                        <select className="form-control" data-val="true" name="senderId" required>
+                                            {contactList.map(sender => <option key={sender.id} value={sender.id}>{sender.firstName + " " + sender.surname}</option>
+                                            )}
+                                        </select>                                    </Col>
                                 </Form.Group>
                                 <Form.Group as={Row} controlId="formPlaintextPassword">
-                                    <Form.Label column sm="2">Message</Form.Label>
+                                    <Form.Label column sm="2">Recipient</Form.Label>
                                     <Col sm="10">
-                                    <select className="form-control" data-val="true" name="recipientId" required>
+                                        <select className="form-control" data-val="true" name="recipientId" required>
                                             {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
                                             )}
                                         </select>
