@@ -3,7 +3,7 @@ import { Container, Button, Col, Row } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import {
     SortingState, PagingState, IntegratedSorting, IntegratedPaging,
-    IntegratedFiltering,SearchState
+    IntegratedFiltering, SearchState
 } from '@devexpress/dx-react-grid';
 import {
     Grid, Table, TableHeaderRow, PagingPanel,
@@ -25,7 +25,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handlePeople = () => setPeople(people);
+    //const handlePeople = () => setPeople(people);
 
     useEffect(() => {
         if (peopleList.length === 1) {
@@ -57,7 +57,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     }, [organisationList]);
     function validateForm(event: any) {
         var validEmailRegex =
-            RegExp(/^(([^<>(),;:\s@]+([^<>()\,;:\s@]+)*)|(.+))@(([^<>()[,;:\s@]+)+[^<>()[,;:\s@]{2,})$/i);
+            RegExp(/^(([^<>()[\].,;:\s@“]+(\.[^<>()[\].,;:\s@“]+)*)|(“.+“))@(([^<>()[\].,;:\s@“]+\.)+[^<>()[\].,;:\s@“]{2,})$/i);
         if (!validEmailRegex.test(event.target["Email"].value)) {
             setErrors([
                 ...errors,
@@ -68,48 +68,63 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
             ]);
         }
     }
-    function handleEdit(ppl: any) {
+    // function handleEdit(ppl: any) {
 
-        setPeople(ppl);
-        handleShow();
+    //     setPeople(ppl);
+    //     handleShow();
 
-    }
-    function handleDelete(ppl: any)  {
-        if (window.confirm('Are you sure you wish to delete this item?'))
-        {
-            //setPeople(ppl);
-            alert(ppl.id);
-            fetch("https://localhost:44368/api/People/" + ppl.id, {
-                headers: {
-                    'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
-                },
-                method:"Delete",
-                
-            }).then(response => response)
-                .then((responseJson) => {
-                    if (responseJson.status === 200)
-                    {
-                        alert("Contact " + ppl.firstName + " Deleted Successfully");
-                        fetch("https://datacomecarduat.azurewebsites.net/api/People", {
-                            headers: {
-                                'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
-                            }
-                        }) 
-                    .then(response => response.json())
-                    .then(data => {
-                        setPeopleList(data);
-                    });
-                        handleClose();
-                    }
-                    else
-                        alert("Error while deleting contact " + ppl.firstName);
-                })
-        }
-        else   
-        {
+    // }
+    // function handleDelete(ppl: any) {
+    //     if (window.confirm('Are you sure you wish to delete this item?')) {
+    //         //setPeople(ppl);
+    //         alert(ppl.id);
+    //         fetch("https://localhost:44368/api/People/" + ppl.id, {
+    //             headers: {
+    //                 'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
+    //             },
+    //             method: "Delete",
 
-        }
-    }
+    //         }).then(response => response)
+    //             .then((responseJson) => {
+    //                 if (responseJson.status === 200) {
+    //                     alert("Contact " + ppl.firstName + " Deleted Successfully");
+    //                     fetch("https://datacomecarduat.azurewebsites.net/api/People", {
+    //                         headers: {
+    //                             'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
+    //                         }
+    //                     })
+    //                         .then(response => response.json())
+    //                         .then(data => {
+    //                             setPeopleList(data);
+    //                         });
+    //                     handleClose();
+    //                 }
+    //                 else
+    //                     alert("Error while deleting contact " + ppl.firstName);
+    //             })
+    //     }
+    //     else {
+
+    //     }
+//}
+        //alert("Do you want to delete this contact " + ppl.firstName);
+        // confirmAlert({
+        //     title: 'Confirm to submit',
+        //     message: 'Are you sure to do this.',
+        //     buttons: [
+        //       {
+        //         label: 'Yes',
+        //         onClick: () => alert('Click Yes')
+        //       },
+        //       {
+        //         label: 'No',
+        //         onClick: () => alert('Click No')
+        //       }
+        //     ]
+        //   })
+
+
+    
 
     function showAddContact() {
         setPeople({ id: 0, firstName: "", surname: "", email: "", organisationid: 0, role: "", department: "", team: "" });
@@ -137,13 +152,13 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         if (errors.length > 1) {
             var consolidatedError = '';
             for (let i = 0; i <= errors.length - 1; i++) {
-                if (errors[i].name ==="")
+                if (errors[i].name !== "")
                     consolidatedError = consolidatedError + "\n" + errors[i].name;
             }
             alert(consolidatedError);
             return;
         }
-        fetch("https://localhost:44368/api/People", {
+        fetch("https://datacomecarduat.azurewebsites.net/api/People", {
             headers: {
                 'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
             },
