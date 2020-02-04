@@ -17,7 +17,6 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     const initialStateValue = [{ id: 0, name: " --- Select A Organisation --- " }];
     const [organisationList, setOrganisationList] = useState(initialStateValue);
 
-    //const initialStateValue = [{ id: 0, name: " --- Select A Organisation --- " }]; 
     const [peopleList, setPeopleList] = useState([{ id: 0, firstName: "", surname: "", email: "", role: "", department: "", team: "" }]);
     const [people, setPeople] = useState({ id: 0, firstName: "", surname: "", email: "", organisationid: 0, role: "", department: "", team: "" });
 
@@ -127,7 +126,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     
 
     function showAddContact() {
-        setPeople({ id: 0, firstName: "", surname: "", email: "", organisationid: 0, role: "", department: "", team: "" });
+        setPeople({ id:0, firstName: "", surname: "", email: "", organisationid: 0, role: "", department: "", team: "" });
         handleShow();
     }
 
@@ -136,10 +135,10 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         const data = new FormData(evt.target);
         var verb = "";
         var successMessage = "";
-        var id = evt.target["Id"].value;
+        // var id = evt.target["Id"].value;
         var FN = evt.target["FirstName"].value;
         var LN = evt.target["Surname"].value;
-        if (id === "" || id === undefined || id === 0) {
+        if (true) {
             verb = "Post";
             successMessage = "Contact " + FN + " " + LN + " created successfully"
         }
@@ -198,12 +197,11 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
         <>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>{people.id === 0 ? "Add Contact" : "Edit Contact"}</Modal.Title>
+                    <Modal.Title>{"Add Contact"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-
-                    <form id="Contactform" onSubmit={handleSubmit} >
-                        <input type="hidden" id="Id" name="Id" defaultValue={people.id} ></input>
+                  {/* <input type="hidden" id="Id" name="Id" defaultValue={people.id} ></input> */}
+                    <form id="Contactform" onSubmit={handleSubmit} >                        
                         <div className="form-group row">
                             <label className="control-label col-sm-4" htmlFor="FirstName">First Name</label>
                             <div className="col-md-8">

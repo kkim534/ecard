@@ -99,7 +99,7 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
                 <div className="input-group-prepend">
                   <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
                 </div>
-                <select className="custom-select" id="inputGroupSelect01">
+                <select name="OrganisationId" className="custom-select" id="inputGroupSelect01">
                   {organisationList.map(org =>
                     <option key={org.id} value={org.id}>{org.name}</option>
                   )}
