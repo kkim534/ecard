@@ -12,6 +12,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
     const [event, setEvent] = useState(initialEvent);
 
     let { eventId } = useParams();
+    
 
     useEffect(() => {
         if (event["id"] === 0) {
@@ -26,6 +27,9 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                 });
         }
     }, [event, eventId]);
+
+    
+
 
     useEffect(() => {
         if (contactList.length === 1) {
@@ -70,7 +74,8 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                 <div className="container">
                     <h2>{event["name"]}</h2>
                     <Row>
-                        <Col md={4}>
+                        <Col md={3}>
+                            <h4>You are invited to write a message for this event!</h4>
                             <li>{event["details"]}</li>
                             <li>{event["datacomMessage"]}</li>
                         </Col>
@@ -88,6 +93,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                     <Form.Label column sm="2">Recipient</Form.Label>
                                     <Col sm="10">
                                         <select className="form-control" data-val="true" name="recipientId" required>
+                                            <option key={0} value={0}>---Please Select a recipient</option>
                                             {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
                                             )}
                                         </select>
@@ -101,7 +107,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                 </Form.Group>
                                 <Form.Group as={Row}>
                                     <Col sm={{ span: 10, offset: 2 }}>
-                                        <Button type="submit" className="btn-btn">Submit</Button>
+                                        <Button type="submit" className="btn-btn">Save</Button>
                                     </Col>
                                 </Form.Group>
                             </Form>

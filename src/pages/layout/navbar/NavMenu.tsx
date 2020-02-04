@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
+import { Nav ,NavbarBrand} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import imagejpg from './../../../assets/Ecardimage.png';
 import './NavMenu.css';
@@ -11,8 +11,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
       <div className="sidebar-content">
         <div className="sidebar-header">
 
-          <img className="logo" src="/logo.PNG" alt="datacom logo"/>
-
+          <NavbarBrand as = {Link} to ="/"><img className="logo" src="/logo.PNG" alt="datacom logo" /></NavbarBrand>
         </div>
 
         <ul className="components">

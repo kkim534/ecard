@@ -1,17 +1,27 @@
+
 #sidebar {
   min-width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
   max-width: 250px;
   min-height: 100vh;
-  background: #002b7f;
-  color: #fff;
+  background: #080057;
+  color: rgb(199, 199, 199);
   transition: all 0.3s;
+  box-shadow: 0 3px 6px 0 rgba(166, 194, 255, 0.16);
+  text-shadow: 0px 3px 2px rgb(58, 58, 58)
 }
+
+
 
 #sidebar .sidebar-content {
   max-height: calc(100% - 30px);
   height: calc(100% - 30px);
   overflow-y: auto;
   position: relative;
+  
 }
 
 #sidebar .sidebar-header {
@@ -29,36 +39,40 @@
 
 #sidebar .header-category-text span {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   padding: 15px 10px 5px 20px;
   display: inline-block;
-  color: #998f8e;
+  color: #a88bff;
 }
 
 #sidebar .menuitem-alignments{
-  padding: 2px 15px 5px 20px;
+  padding: 2px 15px 5px 25px;
 }
 
 #sidebar .menuitem-alignments a{
-  font-weight: bold;
+  font-weight: normal;
   font-size: 16px;
   display: block;
-  color: #fff;
+  color: rgb(255, 255, 255);
+  /* list-style-type: none;
+  margin: 10;
+  padding: 20; */
 }
-
 #sidebar ul li a:hover {
-  color: #0055ff;
+  color: #77b5e97e;
 }
 
 #sidebar hr{
-  background-color: rgb(73, 71, 71);
+  background-color: rgb(0, 0, 0);
+  width: 248px
 }
 
 #sidebar .sidebar-footer{
   position: fixed;
   bottom: 5px;
   width: 100%;
-  color: #998f8e;
+  color: #ffffff;
+  padding: 2px 15px 5px 20px
 }
 
 #sidebar .sidebar-image{
@@ -69,12 +83,54 @@
 }
 
 #sidebar .sidebar-footer a{
-  color: #998f8e;
+  color: #ffffff;
   text-align: center;
+  padding: -1px 15px 5px 1px;
 }
 
-@media (max-width: 768px) {
+/* For mobile phones: */
+[class*="col-"]{
+  width:100%;
+}
+
+
+@media only screen and (max-width: 768px) {
   #sidebar {
-      margin-left: -250px;
+    margin-left: -250px;
  }
 }
+
+ 
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+
+ @media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+

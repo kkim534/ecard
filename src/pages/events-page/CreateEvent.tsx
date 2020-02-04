@@ -71,7 +71,6 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
           alert("Error while creating event");
       })
   }
-
   return (
     <>
       <Container fluid id="createEvent-container">

@@ -17,11 +17,11 @@ const App: React.FC = () => {
       <Router>
         <Container fluid>
           <Row>
-            <Col xs={2} className="nav-alignments">
+            <Col xs={3} className="nav-alignments">
               <NavMenu />
             </Col>
 
-            <Col xs={10}>
+            <Col xs={9}>
               <Route exact path="/">
                 <Home />
               </Route>
