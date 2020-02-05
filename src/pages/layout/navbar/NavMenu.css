@@ -1,20 +1,19 @@
-
 #sidebar {
-  min-width: 250px;
+  background: #080057;
+  box-shadow: 0 3px 6px 0 rgba(166, 194, 255, 0.16);
+  color: rgb(199, 199, 199);
+  height: 100%;
+  left: 0;
+  max-width: 256px;
+  min-height: 100vh;
+  min-width: 256px;
+  overflow: scroll;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 999;
-  max-width: 250px;
-  min-height: 100vh;
-  background: #080057;
-  color: rgb(199, 199, 199);
+  text-shadow: 0px 3px 2px rgb(58, 58, 58);
   transition: all 0.3s;
-  box-shadow: 0 3px 6px 0 rgba(166, 194, 255, 0.16);
-  text-shadow: 0px 3px 2px rgb(58, 58, 58)
+  z-index: 999;
 }
-
-
 
 #sidebar .sidebar-content {
   max-height: calc(100% - 30px);
@@ -68,11 +67,12 @@
 }
 
 #sidebar .sidebar-footer{
-  position: fixed;
+  background-color: #080057;
   bottom: 5px;
-  width: 100%;
   color: #ffffff;
-  padding: 2px 15px 5px 20px
+  padding: 5px 15px 5px 20px;
+  position: fixed;
+  width: 256px;
 }
 
 #sidebar .sidebar-image{
@@ -85,7 +85,7 @@
 #sidebar .sidebar-footer a{
   color: #ffffff;
   text-align: center;
-  padding: -1px 15px 5px 1px;
+  padding: 1px 15px 5px 1px;
 }
 
 /* For mobile phones: */
@@ -93,13 +93,11 @@
   width:100%;
 }
 
-
-@media only screen and (max-width: 768px) {
-  #sidebar {
-    margin-left: -250px;
- }
+@media only screen and (max-width: 1024px) {
+  .nav-alignments {
+    display: none;
+  }
 }
-
  
 @media only screen and (min-width: 600px) {
   /* For tablets: */
@@ -133,4 +131,12 @@
   .col-12 {width: 100%;}
 }
 
+@media only screen and (min-height: 512px) {
+  .nav-alignments {
+    overflow: scroll;
+  }
+}
 
+.col-3 {
+  padding: 0;
+}

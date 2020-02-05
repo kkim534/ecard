@@ -21,7 +21,7 @@ const App: React.FC = () => {
               <NavMenu />
             </Col>
 
-            <Col xs={9}>
+            <Col xs={9} className="component-alignments">
               <Route exact path="/">
                 <Home />
               </Route>
