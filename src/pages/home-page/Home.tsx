@@ -30,7 +30,7 @@ export const Home: React.FunctionComponent = () => {
 
     return (
         <Container fluid id="home-container">
-            <h3>Datacom E-Card</h3>
+            {/* <h3>Datacom E-Card</h3> */}
             <Row id="card-layout">
                 {
                     EventList.map(event =>
@@ -45,7 +45,7 @@ export const Home: React.FunctionComponent = () => {
                                     <Card.Text>Due Date: {event.endDate}</Card.Text>
                                     <Card.Text className="card-details-text">{event.details}</Card.Text>
                                     <NavLink tag={Link} className="text-dark" to={`message/${event.id}`}>
-                                        <Button variant="primary">Greeting</Button>
+                                        <Button variant="primary">Write Message</Button>
                                     </NavLink>
                                 </Card.Body>
                             </Card>
