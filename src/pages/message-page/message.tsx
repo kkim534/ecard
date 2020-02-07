@@ -50,7 +50,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
         let f = new FormData(e.target);
 
         if (eventId !== undefined) {
-            f.append('eventId', eventId);
+            f.append('EventId', eventId);
         }
 
         fetch("https://datacomecarduat.azurewebsites.net/api/Messages", {
@@ -84,7 +84,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                 <Form.Group as={Row} controlId="formPlaintextEmail">
                                     <Form.Label column sm="2">Sender</Form.Label>
                                     <Col sm="10">
-                                        <select className="form-control" data-val="true" name="senderId" required>
+                                        <select className="form-control" data-val="true" name="SenderId" required>
                                             {contactList.map(sender => <option key={sender.id} value={sender.id}>{sender.firstName + " " + sender.surname}</option>
                                             )}
                                         </select>                                    </Col>
@@ -92,7 +92,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                 <Form.Group as={Row} controlId="formPlaintextPassword">
                                     <Form.Label column sm="2">Recipient</Form.Label>
                                     <Col sm="10">
-                                        <select className="form-control" data-val="true" name="recipientId" required>
+                                        <select className="form-control" data-val="true" name="RecipientId" required>
                                             <option key={0} value={0}>---Please Select a recipient</option>
                                             {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
                                             )}
@@ -102,7 +102,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                 <Form.Group as={Row} controlId="formPlaintextPassword">
                                     <Form.Label column sm="2">Message</Form.Label>
                                     <Col sm="10">
-                                        <textarea className="form-control" name="pmessage" aria-label="pmessage"></textarea>
+                                        <textarea className="form-control" name="Pmessage" aria-label="Pmessage"></textarea>
                                     </Col>
                                 </Form.Group>
                                 <Form.Group as={Row}>
