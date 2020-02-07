@@ -1,3 +1,24 @@
 .nav-alignments{
   padding-left: 0 !important;
 }
+
+@media only screen and (min-width: 1024px) {
+  .component-alignments {
+    padding-left: 4%;
+    padding-right: 8%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .col-9 {
+    flex: none;
+    max-width: 100%;
+    width: 100% !important;
+  }
+
+  .component-alignments {
+    padding-left: 4%;
+    padding-right: 7%;
+  }
+}
+
