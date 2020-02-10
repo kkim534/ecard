@@ -77,24 +77,22 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
         <h1>Create an event</h1>
 
         <Form id="form-createEvent" onSubmit={handleSubmit}>
+          {/* <Col> */}
+          <Form.Group id="eventForm.eventInput1">
+
+            <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Event name:</Form.Label>
+            <Form.Control size="lg" type="textarea" name="Name" placeholder="Enter the event name" />
+
+            <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Datacom message:</Form.Label>
+            <Form.Control size="lg" type="textarea" name="DatacomMessage" placeholder="Enter the corporate message" />
+
+            <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Event details:</Form.Label>
+            <Form.Control size="lg" as="textarea" rows="3" name="Details" placeholder="Enter event details" />
+
+          </Form.Group>
           <Row>
             <Col>
-              <Form.Group id="eventForm.eventInput1">
-
-                <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Event name:</Form.Label>
-                <Form.Control size="lg" type="textarea" name="Name" placeholder="Enter the event name" />
-
-                <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Datacom message:</Form.Label>
-                <Form.Control size="lg" type="textarea" name="DatacomMessage" placeholder="Enter the corporate message" />
-
-                <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Event details:</Form.Label>
-                <Form.Control size="lg" as="textarea" rows="3" name="Details" placeholder="Enter event details" />
-
-              </Form.Group>
-            </Col>
-
-            <Col>
-              <p className="col-form-label-lg">Select organisation:</p>
+              <p className="col-form-label-lg" style={{ textAlign: 'left' }}>Select organisation:</p>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
@@ -105,8 +103,9 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
                   )}
                 </select>
               </div>
-
-              <p className="col-form-label-lg">Upload event image:</p>
+            </Col>
+            <Col>
+              <p className="col-form-label-lg" style={{ textAlign: 'left' }}>Upload event image:</p>
               <div className="input-group input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text" id="inputGroupFileAddon1">Upload</span>
@@ -116,42 +115,41 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
                   <label className="custom-file-label" htmlFor="inputGroupFileAddon1">Choose file</label>
                 </div>
               </div>
-              <Row>
-                <Col>
-                  <p className="col-form-label-lg">Select event dates:</p>
-                </Col>
-                <Col>            
-                  <p className="col-form-label-lg">Send date:</p>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col>
-                  <DateRangePicker
-                    startDate={date.startDate}
-                    startDateId="StartDate"
-                    endDate={date.endDate}
-                    endDateId="EndDate"
-                    focusedInput={focusedInput}
-                    onFocusChange={focusedInput => setFocusedInput(focusedInput || constant.END_DATE)}
-                    onDatesChange={({ startDate, endDate }) => setDate({
-                      startDate: startDate,
-                      endDate: endDate
-                    })}
-                    onClose={({ startDate, endDate }) => setFocusedInput(null)}
-                  />
-                </Col>
-                 <Col>
-                  <SingleDatePicker
-                    date={sendDateState.sendDate} // momentPropTypes.momentObj or null
-                    onDateChange={(date: any) => setSendDate({ sendDate: date })} // PropTypes.func.isRequired
-                    focused={focus} // PropTypes.bool
-                    onClose={(date) => setFocus(false)}
-                    onFocusChange={(focused) => setFocus(true)} // PropTypes.func.isRequired
-                    id="SendDate" // PropTypes.string.isRequired,
-                  />
-                </Col>
-              </Row>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <p className="col-form-label-lg">Select event dates:</p>
+            </Col>
+            <Col>
+              <p className="col-form-label-lg">Send date:</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <DateRangePicker
+                startDate={date.startDate}
+                startDateId="StartDate"
+                endDate={date.endDate}
+                endDateId="EndDate"
+                focusedInput={focusedInput}
+                onFocusChange={focusedInput => setFocusedInput(focusedInput || constant.END_DATE)}
+                onDatesChange={({ startDate, endDate }) => setDate({
+                  startDate: startDate,
+                  endDate: endDate
+                })}
+                onClose={({ startDate, endDate }) => setFocusedInput(null)}
+              />
+            </Col>
+            <Col>
+              <SingleDatePicker
+                date={sendDateState.sendDate} // momentPropTypes.momentObj or null
+                onDateChange={(date: any) => setSendDate({ sendDate: date })} // PropTypes.func.isRequired
+                focused={focus} // PropTypes.bool
+                onClose={(date) => setFocus(false)}
+                onFocusChange={(focused) => setFocus(true)} // PropTypes.func.isRequired
+                id="SendDate" // PropTypes.string.isRequired,
+              />
             </Col>
           </Row>
 

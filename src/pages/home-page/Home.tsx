@@ -30,12 +30,12 @@ export const Home: React.FunctionComponent = () => {
 
     return (
         <Container fluid id="home-container">
-            {/* <h3>Datacom E-Card</h3> */}
             <Row id="card-layout">
                 {
                     EventList.map(event =>
                         <Col key={event.id} sm >
-                            <Card className="card-alignments">
+
+                            <Card className="card-alignments" style={{ width: '18rem'}}>
                                 <div className="card-img-alignments" >
                                     <Card.Img variant="top" src={event.image} />
                                 </div>

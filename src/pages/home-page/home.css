@@ -10,8 +10,9 @@
     height: 80vh;
     overflow: auto;
     white-space: nowrap;
-	column-count: 3;
+    column-count: 3;
 }
+
 
 #card-layout .card-alignments{
     display: inline-block;
