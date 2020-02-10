@@ -1,7 +1,6 @@
 import React from 'react';
 import { Nav ,NavbarBrand} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import imagejpg from './../../../assets/Ecardimage.png';
 import './NavMenu.css';
 
 
@@ -42,7 +41,6 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
         </ul>
 
         <div className="sidebar-footer">
-
           <div>
             &copy; {new Date().getFullYear()} Copyright <a href="https://www.datacom.co.nz/"> Datacom</a>
           </div>
