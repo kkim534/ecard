@@ -45,7 +45,7 @@ export const Home: React.FunctionComponent = () => {
                                     <Card.Text>Due Date: {event.endDate}</Card.Text>
                                     <Card.Text className="card-details-text">{event.details}</Card.Text>
                                     <NavLink tag={Link} className="text-dark" to={`message/${event.id}`}>
-                                        <Button variant="primary">Greeting</Button>
+                                        <Button variant="primary">Write a Message</Button>
                                     </NavLink>
                                 </Card.Body>
                             </Card>
