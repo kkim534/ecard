@@ -16,7 +16,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
 
     useEffect(() => {
         if (event["id"] === 0) {
-            fetch("https://datacomecarduat.azurewebsites.net/api/Events/" + eventId, {
+            fetch(`https://datacomecarduat.azurewebsites.net/api/Events/event?id=${eventId}`, {
                 headers: {
                     'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
                 }
