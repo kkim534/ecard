@@ -1,5 +1,6 @@
 #sidebar {
   background: #080057;
+  /* border-right: 2px solid white; */
   box-shadow: 0 3px 6px 0 rgba(166, 194, 255, 0.16);
   color: rgb(199, 199, 199);
   height: 100%;
@@ -65,12 +66,11 @@
 }
 
 #sidebar .sidebar-footer{
-  background-color: #080057;
   bottom: 0;
   color: #ffffff;
   padding: 5px 20px;
   position: fixed;
-  width: 256px;
+  width: 255px;
 }
 
 #sidebar .sidebar-image{
@@ -91,7 +91,7 @@
   width:100%;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
   .nav-alignments {
     display: none;
   }
