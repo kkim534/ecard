@@ -74,7 +74,7 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
   return (
     <>
       <Container fluid id="createEvent-container">
-        <h1>Create an event</h1>
+        <h4>Create an event</h4>
 
         <Form id="form-createEvent" onSubmit={handleSubmit}>
           {/* <Col> */}
