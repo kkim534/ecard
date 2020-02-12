@@ -1,5 +1,5 @@
 #home-container{
-    margin-top: 15px;
+    padding-top: 15px;
 }
 
 #home-container h3{
@@ -7,10 +7,10 @@
 }
 
 #card-layout{
-    height: 80vh;
     overflow: auto;
     white-space: nowrap;
     column-count: 3;
+    margin-right: 0 !important;
 }
 
 

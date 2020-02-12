@@ -91,7 +91,7 @@
   width:100%;
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 768px) {
   .nav-alignments {
     display: none;
   }
