@@ -7,7 +7,7 @@ import {
 } from '@devexpress/dx-react-grid';
 import {
     Grid, Table, TableHeaderRow, PagingPanel,
-     Toolbar, SearchPanel
+    Toolbar, SearchPanel
 } from '@devexpress/dx-react-grid-bootstrap4';
 import "./contacts.css";
 
@@ -105,28 +105,28 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     //     else {
 
     //     }
-//}
-        //alert("Do you want to delete this contact " + ppl.firstName);
-        // confirmAlert({
-        //     title: 'Confirm to submit',
-        //     message: 'Are you sure to do this.',
-        //     buttons: [
-        //       {
-        //         label: 'Yes',
-        //         onClick: () => alert('Click Yes')
-        //       },
-        //       {
-        //         label: 'No',
-        //         onClick: () => alert('Click No')
-        //       }
-        //     ]
-        //   })
+    //}
+    //alert("Do you want to delete this contact " + ppl.firstName);
+    // confirmAlert({
+    //     title: 'Confirm to submit',
+    //     message: 'Are you sure to do this.',
+    //     buttons: [
+    //       {
+    //         label: 'Yes',
+    //         onClick: () => alert('Click Yes')
+    //       },
+    //       {
+    //         label: 'No',
+    //         onClick: () => alert('Click No')
+    //       }
+    //     ]
+    //   })
 
 
-    
+
 
     function showAddContact() {
-        setPeople({ id:0, firstName: "", surname: "", email: "", organisationid: 0, role: "", department: "", team: "" });
+        setPeople({ id: 0, firstName: "", surname: "", email: "", organisationid: 0, role: "", department: "", team: "" });
         handleShow();
     }
 
@@ -200,8 +200,8 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                     <Modal.Title>{"Add Contact"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  {/* <input type="hidden" id="Id" name="Id" defaultValue={people.id} ></input> */}
-                    <form id="Contactform" onSubmit={handleSubmit} >                        
+                    {/* <input type="hidden" id="Id" name="Id" defaultValue={people.id} ></input> */}
+                    <form id="Contactform" onSubmit={handleSubmit} >
                         <div className="form-group row">
                             <label className="control-label col-sm-4" htmlFor="FirstName">First Name</label>
                             <div className="col-md-8">
@@ -230,7 +230,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                             <label className=" control-label col-sm-4" htmlFor="Organisation">Organisation</label>
                             <div className="col-md-8">
                                 <select id="OrganisationId" className="form-control" data-val="true" defaultValue={people.organisationid} name="OrganisationId" required>
-                                <option key={0} value={0}>---Please Select an Organisation</option>
+                                    <option key={0} value={0}>---Please Select an Organisation</option>
                                     {organisationList.map(org =>
                                         <option key={org.id} value={org.id}>{org.name}</option>
                                     )}
@@ -265,35 +265,41 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                 </Modal.Body>
             </Modal>
 
-            <Container fluid>
-                <h1>Contacts</h1>
-                <Row className="justify-content-md-center">
-                    <Col><Button variant="primary" className="float-right" onClick={showAddContact}>Create Contact</Button></Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <div className="card">
-                            <Grid rows={peopleList} columns={columns}>
-                                <PagingState
-                                    defaultCurrentPage={0}
-                                    pageSize={10}
-                                />
-                                <IntegratedPaging />
-                                <SearchState defaultValue="" />
-                                <IntegratedFiltering />
-                                <SortingState
-                                    defaultSorting={[{ columnName: 'firstName', direction: 'asc' }]}
-                                />
-                                <IntegratedSorting />
-                                <Table />
-                                <TableHeaderRow showSortingControls />
-                                <Toolbar />
-                                <SearchPanel />
-                                <PagingPanel />
-                            </Grid>
-                        </div>
-                    </Col>
-                </Row>
+            <Container fluid id="contacts-container">
+                <div className="heading-container">
+                    <h1>Contacts</h1>
+                </div>
+
+                <div className="content">
+
+                    <Row className="justify-content-md-center">
+                        <Col><Button variant="primary" className="float-right" onClick={showAddContact}>Create Contact</Button></Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <div className="card">
+                                <Grid rows={peopleList} columns={columns}>
+                                    <PagingState
+                                        defaultCurrentPage={0}
+                                        pageSize={10}
+                                    />
+                                    <IntegratedPaging />
+                                    <SearchState defaultValue="" />
+                                    <IntegratedFiltering />
+                                    <SortingState
+                                        defaultSorting={[{ columnName: 'firstName', direction: 'asc' }]}
+                                    />
+                                    <IntegratedSorting />
+                                    <Table />
+                                    <TableHeaderRow showSortingControls />
+                                    <Toolbar />
+                                    <SearchPanel />
+                                    <PagingPanel />
+                                </Grid>
+                            </div>
+                        </Col>
+                    </Row>
+                </div>
             </Container>
 
 

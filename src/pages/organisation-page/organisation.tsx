@@ -78,35 +78,42 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
                     </Form>
                 </Modal.Body>
             </Modal>
-            <Container fluid>
-                <h1>Organisations</h1>
-                <Row className="justify-content-md-center">
-                    <Col>
-                        <Button variant="primary" className="float-right" onClick={showAddOrganisation}>Create Organisation</Button>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <div className="card">
-                            <Grid rows={organisationList} columns={columns}>
-                                <PagingState
-                                    defaultCurrentPage={0}
-                                    pageSize={10}
-                                />
-                                <IntegratedPaging />
-                                <SearchState defaultValue="" />
-                                <IntegratedFiltering />
-                                <SortingState defaultSorting={[{ columnName: "Name", direction: "asc" }]} />
-                                <IntegratedSorting />
-                                <Table />
-                                <TableHeaderRow showSortingControls />
-                                <Toolbar />
-                                <SearchPanel />
-                                <PagingPanel />
-                            </Grid>
-                        </div>
-                    </Col>
-                </Row>
+            
+            <Container fluid id="organisation-container">
+                <div className="heading-container">
+                    <h1>Organisations</h1>
+                </div>
+
+                <div className="content">
+                    <Row className="justify-content-md-center">
+                        <Col>
+                            <Button variant="primary" className="float-right" onClick={showAddOrganisation}>Create Organisation</Button>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col>
+                            <div className="card">
+                                <Grid rows={organisationList} columns={columns}>
+                                    <PagingState
+                                        defaultCurrentPage={0}
+                                        pageSize={10}
+                                    />
+                                    <IntegratedPaging />
+                                    <SearchState defaultValue="" />
+                                    <IntegratedFiltering />
+                                    <SortingState defaultSorting={[{ columnName: "Name", direction: "asc" }]} />
+                                    <IntegratedSorting />
+                                    <Table />
+                                    <TableHeaderRow showSortingControls />
+                                    <Toolbar />
+                                    <SearchPanel />
+                                    <PagingPanel />
+                                </Grid>
+                            </div>
+                        </Col>
+                    </Row>
+                </div>
             </Container>
         </>
     )

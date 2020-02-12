@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './message.css';
-import { Form, Col, Button, Row } from 'react-bootstrap';
+import { Form, Col, Button, Row, Container } from 'react-bootstrap';
 import { useParams } from "react-router";
 
 export const MessagePage: React.FunctionComponent = (props: any) => {
@@ -12,7 +12,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
     const [event, setEvent] = useState(initialEvent);
 
     let { eventId } = useParams();
-    
+
 
     useEffect(() => {
         if (event["id"] === 0) {
@@ -28,7 +28,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
         }
     }, [event, eventId]);
 
-    
+
 
 
     useEffect(() => {
@@ -70,51 +70,60 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
 
     return (
         <>
-            <Col md={12} className="dark-back">
-                <div className="container">
-                    <h2>{event["name"]}</h2>
-                    <Row>
-                        <Col md={3}>
-                            <h4>You are invited to write a message for this event!</h4>
-                            <li>{event["details"]}</li>
-                            <li>{event["datacomMessage"]}</li>
-                        </Col>
-                        <Col>
-                            <Form onSubmit={handleSubmit}>
-                                <Form.Group as={Row} controlId="formPlaintextEmail">
-                                    <Form.Label column sm="2">Sender</Form.Label>
-                                    <Col sm="10">
-                                        <select className="form-control" data-val="true" name="SenderId" required>
-                                            {contactList.map(sender => <option key={sender.id} value={sender.id}>{sender.firstName + " " + sender.surname}</option>
-                                            )}
-                                        </select>                                    </Col>
-                                </Form.Group>
-                                <Form.Group as={Row} controlId="formPlaintextPassword">
-                                    <Form.Label column sm="2">Recipient</Form.Label>
-                                    <Col sm="10">
-                                        <select className="form-control" data-val="true" name="RecipientId" required>
-                                            <option key={0} value={0}>---Please Select a recipient</option>
-                                            {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
-                                            )}
-                                        </select>
-                                    </Col>
-                                </Form.Group>
-                                <Form.Group as={Row} controlId="formPlaintextPassword">
-                                    <Form.Label column sm="2">Message</Form.Label>
-                                    <Col sm="10">
-                                        <textarea className="form-control" name="Pmessage" aria-label="Pmessage"></textarea>
-                                    </Col>
-                                </Form.Group>
-                                <Form.Group as={Row}>
-                                    <Col sm={{ span: 10, offset: 2 }}>
-                                        <Button type="submit" className="btn-btn">Save</Button>
-                                    </Col>
-                                </Form.Group>
-                            </Form>
-                        </Col>
-                    </Row>
+            <Container fluid id="message-container">
+                <div className="heading-container">
+                    <h1>{event["name"]}</h1>
                 </div>
-            </Col>
+
+
+                <Col md={12} className="dark-back">
+
+
+                    <div className="content">
+                        <Row>
+                            <Col md={3}>
+                                <h4>You are invited to write a message for this event!</h4>
+                                <li>{event["details"]}</li>
+                                <li>{event["datacomMessage"]}</li>
+                            </Col>
+
+                            <Col>
+                                <Form onSubmit={handleSubmit}>
+                                    <Form.Group as={Row} controlId="formPlaintextEmail">
+                                        <Form.Label column sm="2">Sender</Form.Label>
+                                        <Col sm="10">
+                                            <select className="form-control" data-val="true" name="SenderId" required>
+                                                {contactList.map(sender => <option key={sender.id} value={sender.id}>{sender.firstName + " " + sender.surname}</option>
+                                                )}
+                                            </select>                                    </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row} controlId="formPlaintextPassword">
+                                        <Form.Label column sm="2">Recipient</Form.Label>
+                                        <Col sm="10">
+                                            <select className="form-control" data-val="true" name="RecipientId" required>
+                                                <option key={0} value={0}>---Please Select a recipient</option>
+                                                {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
+                                                )}
+                                            </select>
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row} controlId="formPlaintextPassword">
+                                        <Form.Label column sm="2">Message</Form.Label>
+                                        <Col sm="10">
+                                            <textarea className="form-control" name="Pmessage" aria-label="Pmessage"></textarea>
+                                        </Col>
+                                    </Form.Group>
+                                    <Form.Group as={Row}>
+                                        <Col sm={{ span: 10, offset: 2 }}>
+                                            <Button type="submit" className="btn-btn">Save</Button>
+                                        </Col>
+                                    </Form.Group>
+                                </Form>
+                            </Col>
+                        </Row>
+                    </div>
+                </Col>
+            </Container>
         </>
     )
 };

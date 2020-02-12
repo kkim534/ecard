@@ -8,11 +8,21 @@ body {
   height: 100vh;
 }
 
-.outer-container {
-  margin-left: 256px;
-  width: calc(100% - 256px) !important;
+.component-alignments {
+  padding: 0;
+}
+
+.content {
+  padding: 20px 50px;
 }
 
 .heading-container {
-  background-color: aqua;
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.outer-container {
+  margin-left: 256px;
+  padding: 0;
+  width: calc(100% - 256px) !important;
 }

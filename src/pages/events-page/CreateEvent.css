@@ -1,3 +1,7 @@
+#create-event-container {
+  padding: 0;
+}
+
 #form-createEvent .eventForm.eventInput1 form.label{
   width: 100%;  
   text-align: left;
