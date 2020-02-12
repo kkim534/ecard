@@ -1,3 +1,7 @@
 .align-right{
     float: right;
 }
+
+#message-container {
+    padding: 0;
+}

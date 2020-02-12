@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Col, Row, Button, Form, Container } from "react-bootstrap"
+import './export.css'
 
 export const ExportPage: React.FunctionComponent = (props: any) => {
     const [eventList, setEventList] = useState([
@@ -90,54 +91,57 @@ export const ExportPage: React.FunctionComponent = (props: any) => {
 
     return (
         <>
-            <Container className="background">
-                <Col md={12} className="dark-back">
-                    <div className="container">
-                        <Row>
-                            <Col>
-                                <Form onSubmit={handleSubmitExport}>
-                                    <h3>Export Message to CSV</h3>
-                                    <Form.Group as={Row} controlId="formPlaintextEmail">
-                                        <Form.Label column sm="2">Event</Form.Label>
-                                        <Col sm="10">
-                                            <select className="form-control" data-val="true" name="eventId" required onChange={(e) => onSelectionChange(e)}>
-                                                <option key={0} value={0}>---Please Select an Event</option>
-                                                {eventList.map(event => <option key={event.id} value={event.id}>{event.name}</option>
-                                                )}
-                                            </select>
-                                            <Button type="submit" className="btn-btn page-btn">Export</Button>
-                                        </Col>
-                                    </Form.Group>
-                                </Form>
+            <Container fluid id="export-container">
+                <div className="heading-container">
+                    <h1>Export/Send</h1>
+                </div>
 
-                                <Form onSubmit={handleSubmitEmail}>
-                                    <h3>Send Email</h3>
-                                    <Form.Group as={Row} controlId="formPlaintextPassword">
-                                        <Form.Label column sm="2">Sender</Form.Label>
-                                        <Col sm="10">
-                                            <select className="form-control" data-val="true" name="senderId" required>
-                                                <option key={0} value={0}>---Please Select a sender</option>
-                                                {contactList.map(contact => <option key={contact.id} value={contact.id}>{contact.firstName + " " + contact.surname}</option>
-                                                )}
-                                            </select>
-                                        </Col>
-                                    </Form.Group>
-                                    <Form.Group as={Row} controlId="formPlaintextEmail">
-                                        <Form.Label column sm="2">Event</Form.Label>
-                                        <Col sm="10">
-                                            <select className="form-control" data-val="true" name="eventId" required onChange={(e) => onSelectionChange(e)}>
-                                                <option key={0} value={0}>---Please Select an Event</option>
-                                                {eventList.map(event => <option key={event.id} value={event.id}>{event.name}</option>
-                                                )}
-                                            </select>
-                                            <Button type="submit" className="btn-btn page-btn">Send</Button>
-                                        </Col>
-                                    </Form.Group>
-                                </Form>
-                            </Col>
-                        </Row>
-                    </div>
-                </Col>
+                <div className="content">
+                    <Col md={12} className="dark-back">
+                        <Form onSubmit={handleSubmitExport}>
+                            <h2>Export Messages to CSV</h2>
+
+                            <Form.Group as={Row} controlId="formPlaintextEmail">
+                                <Form.Label column sm="2">Event</Form.Label>
+                                <Col sm="10">
+                                    <select className="form-control" data-val="true" name="eventId" required onChange={(e) => onSelectionChange(e)}>
+                                        <option key={0} value={0}>---Please Select an Event</option>
+                                        {eventList.map(event => <option key={event.id} value={event.id}>{event.name}</option>
+                                        )}
+                                    </select>
+                                    <Button type="submit" className="btn-btn page-btn">Export</Button>
+                                </Col>
+                            </Form.Group>
+                        </Form>
+
+                        <Form onSubmit={handleSubmitEmail}>
+                            <h2>Send Messages via Email</h2>
+
+                            <Form.Group as={Row} controlId="formPlaintextPassword">
+                                <Form.Label column sm="2">Sender</Form.Label>
+                                <Col sm="10">
+                                    <select className="form-control" data-val="true" name="senderId" required>
+                                        <option key={0} value={0}>---Please Select a sender</option>
+                                        {contactList.map(contact => <option key={contact.id} value={contact.id}>{contact.firstName + " " + contact.surname}</option>
+                                        )}
+                                    </select>
+                                </Col>
+                            </Form.Group>
+                            
+                            <Form.Group as={Row} controlId="formPlaintextEmail">
+                                <Form.Label column sm="2">Event</Form.Label>
+                                <Col sm="10">
+                                    <select className="form-control" data-val="true" name="eventId" required onChange={(e) => onSelectionChange(e)}>
+                                        <option key={0} value={0}>---Please Select an Event</option>
+                                        {eventList.map(event => <option key={event.id} value={event.id}>{event.name}</option>
+                                        )}
+                                    </select>
+                                    <Button type="submit" className="btn-btn page-btn">Send</Button>
+                                </Col>
+                            </Form.Group>
+                        </Form>
+                    </Col>
+                </div>
             </Container>
         </>
 

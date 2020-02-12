@@ -1,5 +1,5 @@
 
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Button, Modal, Container } from 'react-bootstrap';
 import { SortingState, PagingState, IntegratedSorting, IntegratedPaging, IntegratedFiltering, SearchState } from '@devexpress/dx-react-grid';
 import { Grid, Table, TableHeaderRow, PagingPanel, Toolbar, SearchPanel } from '@devexpress/dx-react-grid-bootstrap4';
@@ -13,8 +13,8 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    useEffect(()=>{
-        if (organisationList.length ===1){
+    useEffect(() => {
+        if (organisationList.length === 1) {
             fetch("https://datacomecarduat.azurewebsites.net/api/Organisations", {
                 headers: {
                     'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
@@ -78,35 +78,42 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
                     </Form>
                 </Modal.Body>
             </Modal>
-            <Container fluid>
-                <Row className="justify-content-md-center">
-                    <Col><h4>Organisations</h4></Col>
-                    <Col>
-                    <Button variant="primary" className="float-right" onClick={showAddOrganisation}>Create Organisation</Button></Col>
             
-                </Row>
-                <Row>
-                    <Col>
-                        <div className="card">
-                            <Grid rows={organisationList} columns={columns}>
-                                <PagingState
-                                    defaultCurrentPage={0}
-                                    pageSize={10}
-                                />
-                                <IntegratedPaging />
-                                <SearchState defaultValue="" />
-                                <IntegratedFiltering />
-                                <SortingState defaultSorting={[{ columnName: "Name", direction: "asc" }]} />
-                                <IntegratedSorting />
-                                <Table />
-                                <TableHeaderRow showSortingControls />
-                                <Toolbar />
-                                <SearchPanel />
-                                <PagingPanel />
-                            </Grid>
-                        </div>
-                    </Col>
-                </Row>
+            <Container fluid id="organisation-container">
+                <div className="heading-container">
+                    <h1>Organisations</h1>
+                </div>
+
+                <div className="content">
+                    <Row className="justify-content-md-center">
+                        <Col>
+                            <Button variant="primary" className="float-right" onClick={showAddOrganisation}>Create Organisation</Button>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col>
+                            <div className="card">
+                                <Grid rows={organisationList} columns={columns}>
+                                    <PagingState
+                                        defaultCurrentPage={0}
+                                        pageSize={10}
+                                    />
+                                    <IntegratedPaging />
+                                    <SearchState defaultValue="" />
+                                    <IntegratedFiltering />
+                                    <SortingState defaultSorting={[{ columnName: "Name", direction: "asc" }]} />
+                                    <IntegratedSorting />
+                                    <Table />
+                                    <TableHeaderRow showSortingControls />
+                                    <Toolbar />
+                                    <SearchPanel />
+                                    <PagingPanel />
+                                </Grid>
+                            </div>
+                        </Col>
+                    </Row>
+                </div>
             </Container>
         </>
     )
