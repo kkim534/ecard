@@ -1,24 +1,28 @@
-.nav-alignments{
-  padding-left: 0 !important;
+h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px 0;
+  text-align: center;
 }
 
-@media only screen and (min-width: 1024px) {
-  .component-alignments {
-    padding-left: 4%;
-    padding-right: 8%;
-  }
+body {
+  height: 100vh;
 }
 
-@media only screen and (max-width: 1024px) {
-  .col-9 {
-    flex: none;
-    max-width: 100%;
-    width: 100% !important;
-  }
-
-  .component-alignments {
-    padding-left: 4%;
-    padding-right: 7%;
-  }
+.component-alignments {
+  padding: 0;
 }
 
+.content {
+  padding: 20px 50px;
+}
+
+.heading-container {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+.outer-container {
+  margin-left: 256px;
+  padding: 0;
+  width: calc(100% - 256px) !important;
+}

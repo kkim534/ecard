@@ -2,7 +2,6 @@
     float: right;
 }
 
-#message-container h1{
-    text-align: center;
-  }
-
+#message-container {
+    padding: 0;
+}

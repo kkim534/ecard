@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav ,NavbarBrand} from 'react-bootstrap';
+import { Nav, NavbarBrand } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
 
@@ -9,8 +9,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
     <Nav id="sidebar">
       <div className="sidebar-content">
         <div className="sidebar-header">
-
-          <NavbarBrand as = {Link} to ="/"><img className="logo" src="/logo.PNG" alt="datacom logo" /></NavbarBrand>
+          <NavbarBrand as={Link} to="/"><img className="logo" src="/logo.PNG" alt="datacom logo" /></NavbarBrand>
         </div>
 
         <ul className="components">
@@ -41,9 +40,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
         </ul>
 
         <div className="sidebar-footer">
-          <div>
             &copy; {new Date().getFullYear()} Copyright <a href="https://www.datacom.co.nz/"> Datacom</a>
-          </div>
         </div>
       </div>
     </Nav>

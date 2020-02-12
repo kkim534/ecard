@@ -4,3 +4,7 @@
 .modal-body{
     margin:auto;
 }
+
+#organisation-container {
+    padding: 0;
+}
