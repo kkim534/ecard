@@ -1,3 +1,8 @@
 .align-right{
     float: right;
 }
+
+#message-container h1{
+    text-align: center;
+  }
+

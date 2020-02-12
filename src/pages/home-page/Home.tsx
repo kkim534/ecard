@@ -42,7 +42,7 @@ export const Home: React.FunctionComponent = () => {
 
                                 <Card.Body>
                                     <Card.Title>{event.name}</Card.Title>
-                                    <Card.Text>Due Date: {event.endDate}</Card.Text>
+                                    <Card.Text>Due Date: {event.endDate.substring(0,10)}</Card.Text>
                                     <Card.Text className="card-details-text">{event.details}</Card.Text>
                                     <NavLink tag={Link} className="text-dark" to={`message/${event.id}`}>
                                         <Button variant="primary">Write a Message</Button>
