@@ -1,5 +1,5 @@
 
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, Button, Modal, Container } from 'react-bootstrap';
 import { SortingState, PagingState, IntegratedSorting, IntegratedPaging, IntegratedFiltering, SearchState } from '@devexpress/dx-react-grid';
 import { Grid, Table, TableHeaderRow, PagingPanel, Toolbar, SearchPanel } from '@devexpress/dx-react-grid-bootstrap4';
@@ -13,8 +13,8 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    useEffect(()=>{
-        if (organisationList.length ===1){
+    useEffect(() => {
+        if (organisationList.length === 1) {
             fetch("https://datacomecarduat.azurewebsites.net/api/Organisations", {
                 headers: {
                     'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
@@ -79,11 +79,11 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
                 </Modal.Body>
             </Modal>
             <Container fluid>
+                <h1>Organisations</h1>
                 <Row className="justify-content-md-center">
-                    <Col><h4>Organisations</h4></Col>
                     <Col>
-                    <Button variant="primary" className="float-right" onClick={showAddOrganisation}>Create Organisation</Button></Col>
-            
+                        <Button variant="primary" className="float-right" onClick={showAddOrganisation}>Create Organisation</Button>
+                    </Col>
                 </Row>
                 <Row>
                     <Col>

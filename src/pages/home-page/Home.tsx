@@ -30,29 +30,33 @@ export const Home: React.FunctionComponent = () => {
 
     return (
         <Container fluid id="home-container">
-            <Row id="card-layout">
-                {
-                    EventList.map(event =>
-                        <Col key={event.id} sm >
+            <Col>
+                <h1>Events</h1>
+                
+                <Row id="card-layout">
+                    {
+                        EventList.map(event =>
+                            <Col key={event.id} sm >
 
-                            <Card className="card-alignments" style={{ width: '18rem'}}>
-                                <div className="card-img-alignments" >
-                                    <Card.Img variant="top" src={event.image} />
-                                </div>
+                                <Card className="card-alignments" style={{ width: '18rem' }}>
+                                    <div className="card-img-alignments" >
+                                        <Card.Img variant="top" src={event.image} />
+                                    </div>
 
-                                <Card.Body>
-                                    <Card.Title>{event.name}</Card.Title>
-                                    <Card.Text>Due Date: {event.endDate}</Card.Text>
-                                    <Card.Text className="card-details-text">{event.details}</Card.Text>
-                                    <NavLink tag={Link} className="text-dark" to={`message/${event.id}`}>
-                                        <Button variant="primary">Write a Message</Button>
-                                    </NavLink>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    )
-                }
-            </Row>
+                                    <Card.Body>
+                                        <Card.Title>{event.name}</Card.Title>
+                                        <Card.Text>Due Date: {event.endDate}</Card.Text>
+                                        <Card.Text className="card-details-text">{event.details}</Card.Text>
+                                        <NavLink tag={Link} className="text-dark" to={`message/${event.id}`}>
+                                            <Button variant="primary">Write a Message</Button>
+                                        </NavLink>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )
+                    }
+                </Row>
+            </Col>
         </Container>
     );
 }

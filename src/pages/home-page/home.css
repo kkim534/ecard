@@ -1,11 +1,3 @@
-#home-container{
-    padding-top: 15px;
-}
-
-#home-container h3{
-    text-align: center;
-}
-
 #card-layout{
     overflow: auto;
     white-space: nowrap;

@@ -1,13 +1,8 @@
-#createEvent-container h1{
-    text-align: center;
-  }
-
 #form-createEvent .eventForm.eventInput1 form.label{
   width: 100%;  
   text-align: left;
 }
+
 .form-group {
   text-align: center;
-  }
-  
-  
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Col } from 'react-bootstrap';
 import { Home } from './pages/home-page/Home';
 import { ContactsPage } from './pages/contacts-page';
 import DataContextProvider from './contexts/data-context';

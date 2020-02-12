@@ -266,8 +266,8 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
             </Modal>
 
             <Container fluid>
+                <h1>Contacts</h1>
                 <Row className="justify-content-md-center">
-                    <Col><h4>Contact</h4></Col>
                     <Col><Button variant="primary" className="float-right" onClick={showAddContact}>Create Contact</Button></Col>
                 </Row>
                 <Row>
