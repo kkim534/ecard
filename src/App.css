@@ -1,6 +1,6 @@
 h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 20px 0;
+  padding: 20px 0;
   text-align: center;
 }
 
@@ -11,4 +11,8 @@ body {
 .outer-container {
   margin-left: 256px;
   width: calc(100% - 256px) !important;
+}
+
+.heading-container {
+  background-color: aqua;
 }
