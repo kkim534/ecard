@@ -61,3 +61,11 @@
 .card-body{
     white-space: nowrap
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: rgb(1, 30, 85);
+    background-color: cutom-color;
+    border-color: rgba(45, 154, 243, 0.76);
+    border-color: cutom-cor;
+}
