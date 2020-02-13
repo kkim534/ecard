@@ -223,7 +223,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                         <div className="form-group row">
                             <label className=" control-label col-sm-4" htmlFor="Role">Role</label>
                             <div className="col-md-8">
-                                <input id="Role" className="form-control" type="text" minLength={5} maxLength={50} defaultValue={people.role} name="Role" required />
+                                <input id="Role" className="form-control" type="text" minLength={2} maxLength={50} defaultValue={people.role} name="Role" required />
                             </div>
                         </div>
                         <div className="form-group row">

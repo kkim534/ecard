@@ -159,7 +159,7 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
             </Row>
 
             <Button className="btn btn-primary float-right" size="lg" type="submit">
-              Submit
+              +Create
             </Button>
           </Form>
         </div>
