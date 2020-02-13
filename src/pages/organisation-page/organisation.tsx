@@ -88,7 +88,7 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
                 <div className="content">
                     <Row className="justify-content-md-center">
                         <Col>
-                            <Button variant="primary" className="float-right" onClick={showAddOrganisation}>+ Create Organisation</Button>
+                            <Button variant="primary" className="float-right" onClick={showAddOrganisation}>Create Organisation</Button>
                         </Col>
                     </Row>
 
