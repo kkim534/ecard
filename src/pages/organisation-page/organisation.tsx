@@ -51,7 +51,6 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
     ]);
 
     function showAddOrganisation() {
-        console.log(organisation)
         setOrganisation({ id: 0, name: "", address: "" });
         handleShow();
     }
