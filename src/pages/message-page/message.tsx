@@ -67,59 +67,64 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
     return (
         <>
             <Container fluid id="message-container">
-                <div className="heading-container">
-                    <h1>{event["name"]}</h1>
-                </div>
-                <div className="event-container ">
+                <Row noGutters className="heading-container">
+                    <Col>
+                        <h1>{event["name"]}</h1>
+                    </Col>
+                </Row>
+
+                <Row noGutters className="event-container ">
                     <Row noGutters className="details-container">
-                        <Col>
+                        <Col id="event-details">
                             <h1 className="lead"><strong>Event details: </strong></h1>
                             <p>{event["details"]}</p>
                         </Col>
-                        <Col>
+                        <Col id="datacom-message">
                             <h1 className="lead"><strong>Message from Datacom: </strong></h1>
                             <p>{event["datacomMessage"]}</p>
                         </Col>
                     </Row>
-                </div>
-                <Form onSubmit={handleSubmit}>
-                    <Row>
-                        <Col>
-                            <Form.Group as={Row} controlId="formPlaintextEmail">
-                                <Form.Label column sm="4">Sender</Form.Label>
-                                <Col sm="8">
-                                    <select className="form-control" data-val="true" name="SenderId" required>
+                </Row>
+
+                <Row noGutters>
+                    <Col>
+                        <Form onSubmit={handleSubmit} id="message-form">
+                            <Form.Row>
+                                <Form.Group as={Col}>
+                                    <Form.Label column>Sender</Form.Label>
+
+                                    <Form.Control column as="select" data-val="true" name="SenderId" required>
                                         <option key={0} value={0}>---Choose a sender</option>
-                                        {contactList.map(sender => <option key={sender.id} value={sender.id}>{sender.firstName + " " + sender.surname}</option>
-                                        )}
-                                    </select>                                    </Col>
-                            </Form.Group>
-                            <Form.Group as={Row} controlId="formPlaintextPassword">
-                                <Form.Label column sm="4">Recipient</Form.Label>
-                                <Col sm="8">
-                                    <select className="form-control" data-val="true" name="RecipientId" required>
+                                        {
+                                            contactList.map(
+                                                sender => <option key={sender.id} value={sender.id}>{sender.firstName + " " + sender.surname}</option>
+                                            )
+                                        }
+                                    </Form.Control>
+
+                                    <Form.Label column>Recipient</Form.Label>
+
+                                    <Form.Control column as="select" data-val="true" name="RecipientId" required>
                                         <option key={0} value={0}>---Choose a recipient</option>
-                                        {contactList.map(recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
-                                        )}
-                                    </select>
-                                </Col>
-                            </Form.Group>
-                        </Col>
-                        <Col>
-                            <Form.Group as={Row} controlId="formPlaintextPassword">
-                                <Form.Label column sm="2">Message</Form.Label>
-                                <Col sm="9">
-                                    <textarea className="form-control" rows={3} name="Pmessage" aria-label="Pmessage"></textarea>
-                                </Col>
-                            </Form.Group>
-                            <Form.Group as={Row}>
-                                <Col sm={{ span: 10, offset: 2 }}>
-                                    <Button type="submit" className="btn-btn">Save</Button>
-                                </Col>
-                            </Form.Group>
-                        </Col>
-                    </Row>
-                </Form>
+                                        {
+                                            contactList.map(
+                                                recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>
+                                            )
+                                        }
+                                    </Form.Control>
+                                </Form.Group>
+
+                                <Form.Group as={Col}>
+                                    <Form.Label column>Message</Form.Label>
+
+                                    <Form.Control as="textarea" rows="4" name="Pmessage" aria-label="Pmessage" />
+
+                                    <Button type="submit" id="message-button">Save</Button>
+                                </Form.Group>
+                            </Form.Row>
+                        </Form>
+                    </Col>
+                </Row>
             </Container>
         </>
     )
