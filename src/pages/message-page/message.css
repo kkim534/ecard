@@ -19,6 +19,7 @@
 
 .details-container {
     border: 2px solid #f1f1f1;
+    width: 100%;
 }
 
 .event-container p {

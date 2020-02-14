@@ -73,7 +73,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                     </Col>
                 </Row>
 
-                <Row noGutters className="event-container ">
+                <Row noGutters className="event-container">
                     <Row noGutters className="details-container">
                         <Col id="event-details">
                             <h1 className="lead"><strong>Event details: </strong></h1>
