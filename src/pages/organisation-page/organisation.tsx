@@ -8,7 +8,7 @@ import "./organisation.css";
 
 export const OrganisationPage: React.FunctionComponent = (props: any) => {
     const [organisationList, setOrganisationList] = useState([{ id: 0, name: "", address: "" }])
-    const [organisation, setOrganisation] = useState({ id: 0, name: "", address: "" })
+    const [, setOrganisation] = useState({ id: 0, name: "", address: "" })
     //const[errors, setErrors] = useState([{name:""}]);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
