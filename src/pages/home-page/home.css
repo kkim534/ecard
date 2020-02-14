@@ -6,15 +6,14 @@
     overflow: auto;
     white-space: nowrap;
     column-count: 3;
-    margin-right: 0 !important;
+    flex-wrap: nowrap;
 }
-
 
 #card-layout .card-alignments{
     display: inline-block;
-    width: 30vh !important;
-    margin: 3px;
-    padding: 5px;
+    max-width: 300px;
+    min-width: 300px;
+    padding: 10px;
 }
 
 .card-img-alignments{

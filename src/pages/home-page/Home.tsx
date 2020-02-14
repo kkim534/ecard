@@ -7,13 +7,12 @@ import 'react-dates/lib/css/_datepicker.css';
 import "./home.css";
 
 
-
 export default React.PureComponent;
 
 export const Home: React.FunctionComponent = () => {
-
     const initialStateValue = [{ id: 0, name: "", details: "", endDate: "", image: "" }];
     const [EventList, setEventList] = useState(initialStateValue);
+
     useEffect(() => {
         if (EventList.length === 1) {
             fetch('https://datacomecarduat.azurewebsites.net/api/Events/current', {
@@ -29,38 +28,38 @@ export const Home: React.FunctionComponent = () => {
     }, [EventList]);
 
     return (
-        <Container fluid id="home-container">
-            <div className="heading-container">
-                <h1>Events</h1>
-            </div>
+        <>
+            <Container fluid id="home-container">
+                <Row noGutters className="heading-container">
+                    <Col>
+                        <h1>Events</h1>
+                    </Col>
+                </Row>
 
-            <div className="content">
-                <Col>
-                    <Row id="card-layout">
-                        {
-                            EventList.map(event =>
-                                <Col key={event.id} sm >
+                <Row noGutters className="content" id="card-layout">
+                    {
+                        EventList.map(event =>
+                            <Col key={event.id} sm className="card-alignments">
+                                <Card>
+                                    <div className="card-img-alignments" >
+                                        <Card.Img variant="top" src={event.image} />
+                                    </div>
 
-                                    <Card className="card-alignments" style={{ width: '18rem' }}>
-                                        <div className="card-img-alignments" >
-                                            <Card.Img variant="top" src={event.image} />
-                                        </div>
+                                    <Card.Body>
+                                        <Card.Title>{event.name}</Card.Title>
+                                        <Card.Text>Due Date: {event.endDate}</Card.Text>
+                                        <Card.Text className="card-details-text">{event.details}</Card.Text>
 
-                                        <Card.Body>
-                                            <Card.Title>{event.name}</Card.Title>
-                                            <Card.Text>Due Date: {event.endDate.substring(0,10)}</Card.Text>
-                                            <Card.Text className="card-details-text">{event.details}</Card.Text>
-                                            <NavLink tag={Link} className="text-dark" to={`message/${event.id}`}>
-                                                <Button variant="primary">Write a Message</Button>
-                                            </NavLink>
-                                        </Card.Body>
-                                    </Card>
-                                </Col>
-                            )
-                        }
-                    </Row>
-                </Col>
-            </div>
-        </Container>
+                                        <NavLink tag={Link} className="text-dark" to={`message/${event.id}`}>
+                                            <Button variant="primary">Write a Message</Button>
+                                        </NavLink>
+                                    </Card.Body>
+                                </Card>
+                            </Col>
+                        )
+                    }
+                </Row>
+            </Container>
+        </>
     );
 }
