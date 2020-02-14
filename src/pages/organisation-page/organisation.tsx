@@ -51,6 +51,7 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
     ]);
 
     function showAddOrganisation() {
+        console.log(organisation)
         setOrganisation({ id: 0, name: "", address: "" });
         handleShow();
     }
@@ -64,11 +65,11 @@ export const OrganisationPage: React.FunctionComponent = (props: any) => {
                 <Modal.Body>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group as={Row} controlId="formPlaintextPassword">
-                            <Form.Label column sm="2">Organisation Name</Form.Label>
+                            <Form.Label column sm="2">Name</Form.Label>
                             <input type="text" className="form-control" minLength={1} maxLength={150} name="Name" required />
                         </Form.Group>
                         <Form.Group as={Row} controlId="formPlaintextPassword">
-                            <Form.Label column sm="2">Organisation Address</Form.Label>
+                            <Form.Label column sm="2">Address</Form.Label>
                             <textarea className="form-control" name="Address" aria-label="Address" ></textarea>
                         </Form.Group>
                         <div>
