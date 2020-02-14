@@ -15,11 +15,9 @@
     width: 100%;
     text-align: center;
     padding: 40px 50px;
-
 }
 
 .details-container {
-    padding: 20px;
     border: 2px solid #f1f1f1;
 }
 
@@ -27,4 +25,20 @@
     text-align: left;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
+}
+
+#event-details, #datacom-message {
+    padding: 30px 40px;
+}
+
+#message-form {
+    padding: 0 50px;
+}
+
+label {
+    text-align: left;
+}
+
+#message-button {
+    margin: 10px;
 }
