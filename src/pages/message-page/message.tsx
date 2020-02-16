@@ -94,7 +94,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                     <Form.Label column>Sender</Form.Label>
 
                                     <Form.Control column as="select" data-val="true" name="SenderId" required>
-                                        <option key={0} value={0}>---Choose a sender</option>
+                                        <option key={0} value={0}>Choose a sender</option>
                                         {
                                             contactList.map(
                                                 sender => <option key={sender.id} value={sender.id}>{sender.firstName + " " + sender.surname}</option>
@@ -105,7 +105,7 @@ export const MessagePage: React.FunctionComponent = (props: any) => {
                                     <Form.Label column>Recipient</Form.Label>
 
                                     <Form.Control column as="select" data-val="true" name="RecipientId" required>
-                                        <option key={0} value={0}>---Choose a recipient</option>
+                                        <option key={0} value={0}>Choose a recipient</option>
                                         {
                                             contactList.map(
                                                 recip => <option key={recip.id} value={recip.id}>{recip.firstName + " " + recip.surname}</option>

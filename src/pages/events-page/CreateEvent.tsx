@@ -158,9 +158,11 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
               </Col>
             </Row>
 
-            <Button className="btn btn-primary float-right" size="lg" type="submit">
-              +Create
-            </Button>
+            <Row className="content-end">
+              <Button className="btn btn-primary pull-right" size="lg" type="submit">
+                Create
+              </Button>
+            </Row>
           </Form>
         </div>
       </Container>

@@ -67,62 +67,6 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
             ]);
         }
     }
-    // function handleEdit(ppl: any) {
-
-    //     setPeople(ppl);
-    //     handleShow();
-
-    // }
-    // function handleDelete(ppl: any) {
-    //     if (window.confirm('Are you sure you wish to delete this item?')) {
-    //         //setPeople(ppl);
-    //         alert(ppl.id);
-    //         fetch("https://localhost:44368/api/People/" + ppl.id, {
-    //             headers: {
-    //                 'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
-    //             },
-    //             method: "Delete",
-
-    //         }).then(response => response)
-    //             .then((responseJson) => {
-    //                 if (responseJson.status === 200) {
-    //                     alert("Contact " + ppl.firstName + " Deleted Successfully");
-    //                     fetch("https://datacomecarduat.azurewebsites.net/api/People", {
-    //                         headers: {
-    //                             'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
-    //                         }
-    //                     })
-    //                         .then(response => response.json())
-    //                         .then(data => {
-    //                             setPeopleList(data);
-    //                         });
-    //                     handleClose();
-    //                 }
-    //                 else
-    //                     alert("Error while deleting contact " + ppl.firstName);
-    //             })
-    //     }
-    //     else {
-
-    //     }
-    //}
-    //alert("Do you want to delete this contact " + ppl.firstName);
-    // confirmAlert({
-    //     title: 'Confirm to submit',
-    //     message: 'Are you sure to do this.',
-    //     buttons: [
-    //       {
-    //         label: 'Yes',
-    //         onClick: () => alert('Click Yes')
-    //       },
-    //       {
-    //         label: 'No',
-    //         onClick: () => alert('Click No')
-    //       }
-    //     ]
-    //   })
-
-
 
 
     function showAddContact() {
@@ -184,7 +128,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     }
 
     const [columns] = useState([
-        { name: 'firstName', title: 'FirstName' },
+        { name: 'firstName', title: 'First name' },
         { name: 'surname', title: 'Surname' },
         { name: 'email', title: 'Email' },
         { name: 'role', title: 'Role' },
@@ -215,22 +159,22 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label className=" control-label col-sm-4" htmlFor="Email">Email</label>
+                            <label className="control-label col-sm-4" htmlFor="Email">Email</label>
                             <div className="col-md-8">
                                 <input id="Email" className="form-control" type="text" maxLength={100} defaultValue={people.email} name="Email" required />
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label className=" control-label col-sm-4" htmlFor="Role">Role</label>
+                            <label className="control-label col-sm-4" htmlFor="Role">Role</label>
                             <div className="col-md-8">
                                 <input id="Role" className="form-control" type="text" minLength={2} maxLength={50} defaultValue={people.role} name="Role" required />
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label className=" control-label col-sm-4" htmlFor="Organisation">Organisation</label>
+                            <label className="control-label col-sm-4" htmlFor="Organisation">Organisation</label>
                             <div className="col-md-8">
                                 <select id="OrganisationId" className="form-control" data-val="true" defaultValue={people.organisationid} name="OrganisationId" required>
-                                    <option key={0} value={0}>---Please Select an Organisation</option>
+                                    <option key={0} value={0}>Please Select an Organisation</option>
                                     {organisationList.map(org =>
                                         <option key={org.id} value={org.id}>{org.name}</option>
                                     )}
