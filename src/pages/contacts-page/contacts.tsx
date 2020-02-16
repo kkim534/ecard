@@ -159,22 +159,22 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label className=" control-label col-sm-4" htmlFor="Email">Email</label>
+                            <label className="control-label col-sm-4" htmlFor="Email">Email</label>
                             <div className="col-md-8">
                                 <input id="Email" className="form-control" type="text" maxLength={100} defaultValue={people.email} name="Email" required />
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label className=" control-label col-sm-4" htmlFor="Role">Role</label>
+                            <label className="control-label col-sm-4" htmlFor="Role">Role</label>
                             <div className="col-md-8">
                                 <input id="Role" className="form-control" type="text" minLength={2} maxLength={50} defaultValue={people.role} name="Role" required />
                             </div>
                         </div>
                         <div className="form-group row">
-                            <label className=" control-label col-sm-4" htmlFor="Organisation">Organisation</label>
+                            <label className="control-label col-sm-4" htmlFor="Organisation">Organisation</label>
                             <div className="col-md-8">
                                 <select id="OrganisationId" className="form-control" data-val="true" defaultValue={people.organisationid} name="OrganisationId" required>
-                                    <option key={0} value={0}>---Please Select an Organisation</option>
+                                    <option key={0} value={0}>Please Select an Organisation</option>
                                     {organisationList.map(org =>
                                         <option key={org.id} value={org.id}>{org.name}</option>
                                     )}

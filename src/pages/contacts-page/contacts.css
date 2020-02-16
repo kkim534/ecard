@@ -14,3 +14,6 @@ color: rgb(255, 255, 255);
 text-align: center;
 }
 
+.table {
+  margin-bottom: 0;
+}

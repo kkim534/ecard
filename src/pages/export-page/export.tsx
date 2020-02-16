@@ -99,13 +99,13 @@ export const ExportPage: React.FunctionComponent = (props: any) => {
                 <div className="content">
                     <Col md={12} className="dark-back">
                         <Form onSubmit={handleSubmitExport}>
-                            <h2>Export Messages to CSV</h2>
+                            <h2>Export messages to CSV</h2>
 
                             <Form.Group as={Row} controlId="formPlaintextEmail">
-                                <Form.Label column sm="2">Event</Form.Label>
+                                <Form.Label className="col-form-label-lg" column sm="2">Event:</Form.Label>
                                 <Col sm="10">
                                     <select className="form-control" data-val="true" name="eventId" required onChange={(e) => onSelectionChange(e)}>
-                                        <option key={0} value={0}>---Please Select an Event</option>
+                                        <option key={0} value={0}>Please Select an Event</option>
                                         {eventList.map(event => <option key={event.id} value={event.id}>{event.name}</option>
                                         )}
                                     </select>
@@ -115,13 +115,13 @@ export const ExportPage: React.FunctionComponent = (props: any) => {
                         </Form>
 
                         <Form onSubmit={handleSubmitEmail}>
-                            <h2>Send Messages via Email</h2>
+                            <h2>Send messages via Email</h2>
 
                             <Form.Group as={Row} controlId="formPlaintextPassword">
-                                <Form.Label column sm="2">Sender</Form.Label>
+                                <Form.Label className="col-form-label-lg" column sm="2">Sender:</Form.Label>
                                 <Col sm="10">
                                     <select className="form-control" data-val="true" name="senderId" required>
-                                        <option key={0} value={0}>---Please Select a sender</option>
+                                        <option key={0} value={0}>Please select a sender</option>
                                         {contactList.map(contact => <option key={contact.id} value={contact.id}>{contact.firstName + " " + contact.surname}</option>
                                         )}
                                     </select>
@@ -129,10 +129,10 @@ export const ExportPage: React.FunctionComponent = (props: any) => {
                             </Form.Group>
                             
                             <Form.Group as={Row} controlId="formPlaintextEmail">
-                                <Form.Label column sm="2">Event</Form.Label>
+                                <Form.Label className="col-form-label-lg" column sm="2">Event:</Form.Label>
                                 <Col sm="10">
                                     <select className="form-control" data-val="true" name="eventId" required onChange={(e) => onSelectionChange(e)}>
-                                        <option key={0} value={0}>---Please Select an Event</option>
+                                        <option key={0} value={0}>Please select an event</option>
                                         {eventList.map(event => <option key={event.id} value={event.id}>{event.name}</option>
                                         )}
                                     </select>
