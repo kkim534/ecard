@@ -67,62 +67,6 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
             ]);
         }
     }
-    // function handleEdit(ppl: any) {
-
-    //     setPeople(ppl);
-    //     handleShow();
-
-    // }
-    // function handleDelete(ppl: any) {
-    //     if (window.confirm('Are you sure you wish to delete this item?')) {
-    //         //setPeople(ppl);
-    //         alert(ppl.id);
-    //         fetch("https://localhost:44368/api/People/" + ppl.id, {
-    //             headers: {
-    //                 'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
-    //             },
-    //             method: "Delete",
-
-    //         }).then(response => response)
-    //             .then((responseJson) => {
-    //                 if (responseJson.status === 200) {
-    //                     alert("Contact " + ppl.firstName + " Deleted Successfully");
-    //                     fetch("https://datacomecarduat.azurewebsites.net/api/People", {
-    //                         headers: {
-    //                             'ApiKey': '99d73981-632e-4aa7-8499-169e5da08ef3'
-    //                         }
-    //                     })
-    //                         .then(response => response.json())
-    //                         .then(data => {
-    //                             setPeopleList(data);
-    //                         });
-    //                     handleClose();
-    //                 }
-    //                 else
-    //                     alert("Error while deleting contact " + ppl.firstName);
-    //             })
-    //     }
-    //     else {
-
-    //     }
-    //}
-    //alert("Do you want to delete this contact " + ppl.firstName);
-    // confirmAlert({
-    //     title: 'Confirm to submit',
-    //     message: 'Are you sure to do this.',
-    //     buttons: [
-    //       {
-    //         label: 'Yes',
-    //         onClick: () => alert('Click Yes')
-    //       },
-    //       {
-    //         label: 'No',
-    //         onClick: () => alert('Click No')
-    //       }
-    //     ]
-    //   })
-
-
 
 
     function showAddContact() {
@@ -184,7 +128,7 @@ export const ContactsPage: React.FunctionComponent = (props: any) => {
     }
 
     const [columns] = useState([
-        { name: 'firstName', title: 'FirstName' },
+        { name: 'firstName', title: 'First name' },
         { name: 'surname', title: 'Surname' },
         { name: 'email', title: 'Email' },
         { name: 'role', title: 'Role' },
