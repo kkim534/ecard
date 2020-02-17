@@ -1,3 +1,9 @@
 #export-container {
     padding: 0;
 }
+.h2{
+    font-size: 1.55em;
+}
+.col-form-label-lg{
+    font-size: 1.0rem
+}
