@@ -82,20 +82,20 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
           <Form id="form-createEvent" onSubmit={handleSubmit}>
             <Form.Group id="eventForm.eventInput1">
 
-              <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Event name:</Form.Label>
-              <Form.Control size="lg" type="textarea" name="Name" placeholder="Enter the event name" />
+              <Form.Label className="col-form-label-sm" style={{ width: '100%', textAlign: 'left' }}>Event name:</Form.Label>
+              <Form.Control size="sm" type="textarea" name="Name" placeholder="Enter the event name" />
 
-              <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Datacom message:</Form.Label>
-              <Form.Control size="lg" type="textarea" name="DatacomMessage" placeholder="Enter the corporate message" />
+              <Form.Label className="col-form-label-sm" style={{ width: '100%', textAlign: 'left' }}>Datacom message:</Form.Label>
+              <Form.Control size="sm" type="textarea" name="DatacomMessage" placeholder="Enter the corporate message" />
 
-              <Form.Label className="col-form-label-lg" style={{ width: '100%', textAlign: 'left' }}>Event details:</Form.Label>
-              <Form.Control size="lg" as="textarea" rows="3" name="Details" placeholder="Enter event details" />
+              <Form.Label className="col-form-label-sm" style={{ width: '100%', textAlign: 'left' }}>Event details:</Form.Label>
+              <Form.Control size="sm" as="textarea" rows="3" name="Details" placeholder="Enter event details" />
 
             </Form.Group>
 
             <Row>
               <Col>
-                <p className="col-form-label-lg" style={{ textAlign: 'left' }}>Select organisation:</p>
+                <p className="col-form-label-sm" style={{ textAlign: 'left' }}>Select organisation:</p>
                 <div className="input-group">
                   <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
@@ -108,7 +108,7 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
                 </div>
               </Col>
               <Col>
-                <p className="col-form-label-lg" style={{ textAlign: 'left' }}>Upload event image:</p>
+                <p className="col-form-label-sm" style={{ textAlign: 'left' }}>Upload event image:</p>
                 <div className="input-group input-group">
                   <div className="input-group-prepend">
                     <span className="input-group-text" id="inputGroupFileAddon1">Upload</span>
@@ -123,10 +123,10 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
 
             <Row>
               <Col>
-                <p className="col-form-label-lg">Select event dates:</p>
+                <p className="col-form-label-sm">Select event dates:</p>
               </Col>
               <Col>
-                <p className="col-form-label-lg">Send date:</p>
+                <p className="col-form-label-sm">Send date:</p>
               </Col>
             </Row>
             
@@ -159,7 +159,7 @@ export const CreateEvent: React.FunctionComponent = (props: any) => {
             </Row>
 
             <Row className="content-end">
-              <Button className="btn btn-primary pull-right" size="lg" type="submit">
+              <Button className="btn btn-primary pull-right" size="sm" type="submit">
                 Create
               </Button>
             </Row>

@@ -117,7 +117,7 @@ export const ExportPage: React.FunctionComponent = (props: any) => {
                         <Form onSubmit={handleSubmitEmail}>
                             <h2>Send messages via Email</h2>
 
-                            <Form.Group as={Row} controlId="formPlaintextPassword">
+                            {/* <Form.Group as={Row} controlId="formPlaintextPassword">
                                 <Form.Label className="col-form-label-lg" column sm="2">Sender:</Form.Label>
                                 <Col sm="10">
                                     <select className="form-control" data-val="true" name="senderId" required>
@@ -126,7 +126,7 @@ export const ExportPage: React.FunctionComponent = (props: any) => {
                                         )}
                                     </select>
                                 </Col>
-                            </Form.Group>
+                            </Form.Group> */}
                             
                             <Form.Group as={Row} controlId="formPlaintextEmail">
                                 <Form.Label className="col-form-label-lg" column sm="2">Event:</Form.Label>

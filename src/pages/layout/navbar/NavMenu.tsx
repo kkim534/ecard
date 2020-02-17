@@ -35,7 +35,7 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
             <Nav.Link as={Link} to="/organisation" className="nav-item-text">Create organisation</Nav.Link>
           </li>
           <li className="menuitem-alignments">
-            <Nav.Link as={Link} to="/export" className="nav-item-text">Export</Nav.Link>
+            <Nav.Link as={Link} to="/export" className="nav-item-text">Export/Send</Nav.Link>
           </li>
         </ul>
 
