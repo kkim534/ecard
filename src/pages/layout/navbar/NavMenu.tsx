@@ -29,10 +29,10 @@ export const NavMenu: React.FunctionComponent = (props: any) => {
             <span>Admin</span>
           </li>
           <li className="menuitem-alignments">
-            <Nav.Link as={Link} to="/event" className="nav-item-text">Create event</Nav.Link>
+            <Nav.Link as={Link} to="/organisation" className="nav-item-text">Create organisation</Nav.Link>
           </li>
           <li className="menuitem-alignments">
-            <Nav.Link as={Link} to="/organisation" className="nav-item-text">Create organisation</Nav.Link>
+            <Nav.Link as={Link} to="/event" className="nav-item-text">Create event</Nav.Link>
           </li>
           <li className="menuitem-alignments">
             <Nav.Link as={Link} to="/export" className="nav-item-text">Export/Send</Nav.Link>
