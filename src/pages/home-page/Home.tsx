@@ -15,7 +15,7 @@ export const Home: React.FunctionComponent = () => {
 
     useEffect(() => {
         if (EventList.length === 1) {
-            fetch('https://datacomecarduat.azurewebsites.net/api/Events/current', {
+            fetch('https://datacomecarduat.azurewebsites.net/api/Events/', {
                 headers: {
                     "ApiKey": "99d73981-632e-4aa7-8499-169e5da08ef3"
                 }
